@@ -1,55 +1,57 @@
 package animal;
 
+import animal.classification.Type;
+import interfaces.IAquatic;
+import interfaces.IAvian;
+import interfaces.IMessage;
 import java.util.ArrayList;
 
 /**
  *
  * @author Diogo Pessoa
  */
-abstract class Animal {
+abstract class Animal implements IAvian, IAquatic, IMessage{
 
     final private int animalID;
     final private String name;
-    final private String dob; //pesquisar
+    final private String dob;
     final private char gender;
     final private String dateArrival;
-    private String medication;
-    private String vaccine;
     private int exibitNumber;
+    private int[] parents;
+    private Type subType;
 
-    private ArrayList offSpring = new ArrayList();
-    String[] type = new String[2]; // problema com o modificador
-
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival, String[] type) {
+    //private ArrayList<Animal> offSpring = new ArrayList<Animal>(); // OLhar com Mark
+    public Animal(int animalID, String name, char gender, String dob, String dateArrival, int[] parents, Type subType) {
         this.animalID = animalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
-        this.type = type;
+        this.parents = parents;
+        this.subType = subType; 
+    }
+    
+    public Animal(int animalID, String name, char gender, String dob, String dateArrival, int[] parents) {
+        this.animalID = animalID;
+        this.name = name;
+        this.gender = gender;
+        this.dob = dob;
+        this.dateArrival = dateArrival;
+        this.parents = parents;
     }
 
-    public void setMedication(String medication) {
-        this.medication = medication;
-    }
-
-    public void setVaccine(String vaccine) {
-        this.vaccine = vaccine;
-    }
-
+//    public void setOffSpring(ArrayList offSpring) {
+//        this.offSpring = offSpring;
+//    }
     public void setExibitNumber(int exibitNumber) {
         this.exibitNumber = exibitNumber;
     }
 
-    public void setOffSpring(ArrayList offSpring) {
-        this.offSpring = offSpring;
+    public void setParents(int[] parents) {
+        this.parents = parents;
     }
 
-    public void setType(String[] type) {
-        this.type = type;
-    }
-    
-    
     public int getAnimalID() {
         return animalID;
     }
@@ -70,23 +72,45 @@ abstract class Animal {
         return dateArrival;
     }
 
-    public String getMedication() {
-        return medication;
-    }
-
-    public String getVaccine() {
-        return vaccine;
-    }
-
     public int getExibitNumber() {
         return exibitNumber;
     }
 
-    public ArrayList getOffSpring() {
-        return offSpring;
+    public int[] getParents() {
+        return parents;
     }
 
-    public String[] getType() {
-        return type;
-    }        
+    public Type getSubtype() {
+        return subType;
+    }
+
+    public void setSubtype(Type subType) {
+        this.subType = subType;
+    }
+    @Override
+    public void fly() {
+        
+    }
+
+    @Override
+    public boolean isAbleToFly() {
+        return getSubtype() == Type.AVIAN || this instanceof Avian;
+    }
+    
+     @Override
+    public void swin() {
+        //todo
+    }
+
+    @Override
+    public boolean isAbleToSwin() {
+        //todo
+        return false;
+    }
+
+    @Override
+    public void displayMessage(String message){
+        System.out.println(message);
+    }
+    
 }
