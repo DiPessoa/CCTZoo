@@ -1,7 +1,7 @@
 package animal;
 
-import animal.classification.Type;
-import interfaces.IMessage;
+import animal.classification.Subtype;
+
 
 /**
  *
@@ -11,13 +11,13 @@ public class Mammal extends Animal {
 
     private boolean pregnancy;
 
-    public Mammal(int animalID, String name, char gender, String dob, String dateArrival, int[] parents, Type subType) {
-        super(animalID, name, gender, dob, dateArrival, parents, subType);
+    public Mammal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
+        super(animalID, name, gender, dob, dateArrival, subType);
 
     }
 
-    public Mammal(int animalID, String name, char gender, String dob, String dateArrival, int[] parents) {
-        super(animalID, name, gender, dob, dateArrival, parents);
+    public Mammal(int animalID, String name, char gender, String dob, String dateArrival) {
+        super(animalID, name, gender, dob, dateArrival);
 
     }
 

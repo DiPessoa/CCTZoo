@@ -1,6 +1,6 @@
 package animal;
 
-import animal.classification.Type;
+import animal.classification.Subtype;
 import interfaces.IAquatic;
 import interfaces.IAvian;
 import interfaces.IMessage;
@@ -17,34 +17,33 @@ abstract class Animal implements IAvian, IAquatic, IMessage {
     final private String dob;
     final private char gender;
     final private String dateArrival;
-    final private int[] parents;
-    private Type subType;
+      private Subtype subtype;
     private int exibitNumber;
     private boolean vaccine = false;
     private ArrayList<Medication> medication = new ArrayList<Medication>();
-
-    //private ArrayList<Animal> offSpring = new ArrayList<Animal>(); // OLhar com Mark
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival, int[] parents, Type subType) {
+    private boolean isDead = false;
+    private String dod;
+    private ArrayList<Offspring> offSpring = new ArrayList<Offspring>();
+    
+    public Animal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
         this.animalID = animalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
-        this.parents = parents;
-        this.subType = subType;
+        this.subtype = subType;
     }
 
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival, int[] parents) {
+    public Animal(int animalID, String name, char gender, String dob, String dateArrival) {
         this.animalID = animalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
-        this.parents = parents;
     }
-//    public void setOffSpring(ArrayList offSpring) {
-//        this.offSpring = offSpring;
-//    }
+    public void setOffSpring(ArrayList<Offspring> offSpring) {
+        this.offSpring = offSpring;
+    }
 
     public void setExibitNumber(int exibitNumber) {
         this.exibitNumber = exibitNumber;
@@ -82,26 +81,36 @@ abstract class Animal implements IAvian, IAquatic, IMessage {
         return exibitNumber;
     }
 
-    public int[] getParents() {
-        return parents;
+  
+    public Subtype getSubtype() {
+        return subtype;
     }
 
-    public Type getSubtype() {
-        return subType;
+    public void setSubtype(Subtype subType) {
+        this.subtype = subType;
     }
-
-    public void setSubtype(Type subType) {
-        this.subType = subType;
+    
+    public boolean isDead(){
+        return isDead;
     }
+    
+    public void setDeath(boolean isDead, String dod){
+      this.isDead = isDead;
+      this.dod = dod;
+    }
+    
 
+    //ciar metodo que conte quanto animais estao no arraylist
+   
+    
     @Override
     public boolean isAbleToFly() {
-        return getSubtype() == Type.AVIAN || this instanceof Avian;
+        return getSubtype() == Subtype.AVIAN || this instanceof Avian;
     }
 
     @Override
     public boolean isAbleToSwin() {
-        return getSubtype() == Type.AQUATIC || this instanceof Aquatic;
+        return getSubtype() == Subtype.AQUATIC || this instanceof Aquatic;
     }
 
     @Override
