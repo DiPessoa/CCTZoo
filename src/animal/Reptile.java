@@ -1,18 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package animal;
+
+import animal.classification.Type;
+import interfaces.IMessage;
 
 /**
  *
  * @author Diogo Pessoa
  */
 public class Reptile extends Animal{
+
+    private boolean shedSkin;
+
+    public Reptile (int animalID, String name, char gender, String dob, String dateArrival, int[] parents, Type subType) {
+        super(animalID, name, gender, dob, dateArrival, parents, subType);
+
+    }
+
+    public Reptile (int animalID, String name, char gender, String dob, String dateArrival, int[] parents) {
+        super(animalID, name, gender, dob, dateArrival, parents);
+
+    }
     
-    public Reptile(int animalID, String name, char gender, String dob, String dateArrival, String[] type) {
-        super(animalID, name, gender, dob, dateArrival, type);
-        this.type = new String[]{"Reptile"};          
-   }
+    public boolean isSheddingSkin() {
+        return shedSkin;
+    }
+
+    public void setShedSkin(boolean shedSkin) {
+        this.shedSkin = shedSkin;
+    }
 }

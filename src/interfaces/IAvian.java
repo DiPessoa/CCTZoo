@@ -10,8 +10,7 @@ package interfaces;
  * @author Diogo Pessoa
  */
 public interface IAvian {
-    
-    public void fly();
+
     public boolean isAbleToFly();
-    
+
 }

@@ -7,7 +7,7 @@ import interfaces.IMessage;
  *
  * @author Diogo Pessoa
  */
-public class Mammal extends Animal{
+public class Mammal extends Animal {
 
     private boolean pregnancy;
 
@@ -20,15 +20,15 @@ public class Mammal extends Animal{
         super(animalID, name, gender, dob, dateArrival, parents);
 
     }
-    
+
     public boolean isPregnant() {
         return pregnancy;
     }
 
     public void setPregnancy(boolean pregnancy) {
-        if(getGender() == 'F') {
+        if (getGender() == 'F') {
             this.pregnancy = true;
-        }else{
+        } else {
             displayMessage("A male animmal can not be pregnant!");
         }
     }

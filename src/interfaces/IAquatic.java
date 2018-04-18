@@ -11,7 +11,6 @@ package interfaces;
  */
 public interface IAquatic {
     
-    public void swin();
     public boolean isAbleToSwin();
     
 }
