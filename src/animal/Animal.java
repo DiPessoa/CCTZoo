@@ -11,7 +11,7 @@ import employee.Zookeeper;
  *
  * @author Diogo Pessoa
  */
-abstract class Animal implements IAvian, IAquatic, IMessage {
+public abstract class Animal implements IAvian, IAquatic, IMessage {
 
     final private int animalID;
     final private String name;
@@ -37,6 +37,16 @@ abstract class Animal implements IAvian, IAquatic, IMessage {
         this.subtype = subType;
         this.zookeeper = zookeeper;
     }
+    
+    public Animal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
+        this.animalID = animalID;
+        this.name = name;
+        this.gender = gender;
+        this.dob = dob;
+        this.dateArrival = dateArrival;
+        this.subtype = subType;
+        this.zookeeper = zookeeper;
+    }
 
     public Animal(int animalID, String name, char gender, String dob, String dateArrival, Zookeeper zookeeper) {
         this.animalID = animalID;
@@ -46,6 +56,16 @@ abstract class Animal implements IAvian, IAquatic, IMessage {
         this.dateArrival = dateArrival;
         this.zookeeper = zookeeper;
     }
+    
+    public Animal(int animalID, String name, char gender, String dob, String dateArrival) {
+        this.animalID = animalID;
+        this.name = name;
+        this.gender = gender;
+        this.dob = dob;
+        this.dateArrival = dateArrival;
+        this.zookeeper = zookeeper;
+    }
+    
     public void setOffSpring(ArrayList<Offspring> offSpring) {
         this.offSpring = offSpring;
     }
@@ -121,6 +141,17 @@ abstract class Animal implements IAvian, IAquatic, IMessage {
     @Override
     public void displayMessage(String message) {
         System.out.println(message);
+    }
+    
+    public String getType(){
+        String type = getClass().getName().substring(getClass().getName().indexOf(".") + 1, getClass().getName().length());
+        return type.toUpperCase();
+    }
+    
+    //TODO: to string do animal, retorna nome e dados bla bla bla
+    @Override
+    public String toString(){
+        return name + " dob: " + dob;
     }
 
 }

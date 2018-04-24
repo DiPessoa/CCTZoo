@@ -32,4 +32,10 @@ public class Mammal extends Animal {
             displayMessage("A male animmal can not be pregnant!");
         }
     }
+    
+    @Override
+    public String getType(){
+        String type = getClass().getName().substring(getClass().getName().indexOf(".") + 1, getClass().getName().length());
+        return type.toUpperCase();
+    }
 }

@@ -10,4 +10,8 @@ public enum Subtype {
     
     MAMMAL, REPTILE, AVIAN, AQUATIC, INSECT;
     
+    public String toString() {
+        return name();
+    }
+    
 }

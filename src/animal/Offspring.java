@@ -19,7 +19,7 @@ public class Offspring {
     public Offspring (String destination, Animal animal){
          this.destination = destination;
          this.animal = animal;
-         
+         //TODO: set parent no animal, ao adicionar o offspring, pega o id do pai e adiciona no filho
     }
 
     public String getDestination() {

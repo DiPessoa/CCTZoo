@@ -6,69 +6,85 @@
 package employee;
 
 import animal.classification.Subtype;
+import animal.Animal;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
  * @author Diogo Pessoa
  */
 public class Zookeeper extends Employee{
-   private Subtype  firstcare;
-   private Subtype  secondcare;
-   private Subtype  thirdcare;
-   
-   
+       
+    private final int maxAnimals = 10;
+    private final int maxTypes = 3;
     
-    public Zookeeper(String name, String dob, String address, int pps, Subtype firstcare) {
+    private final Subtype[] animalsType = new Subtype[maxTypes];
+    private final ArrayList<Animal> animalsList = new ArrayList<>();
+    
+    public Zookeeper(String name, String dob, String address, int pps) {
         super(name, dob, address, pps);
+    }
+    
+    public void addAnimal(Animal animal){
+        if(isAnimalCompatible(animal)){
+            if(getAnimalsCount() < maxAnimals){
+                animalsList.add(animal);
+            }
+        }
+    }
+    
+    public static boolean useList(String[] arr, String targetValue) {
+        return Arrays.asList(arr).contains(targetValue);
+    }
+    
+    public int getAnimalsCount(){
+        return animalsList.size();
+    }
+    
+    public String getAnimalsList(){
+        //TODO: corrigir metodo pra imprimir uma string decente
+        String list = "";
+        for (Animal currentAnimal: animalsList) {
+            list += currentAnimal.getName() + "\n";
+        }
+        return list;
+    }
+    
+    public void setAnimalType(Subtype type){
+        // verifica se ja nao esta na lista
+        if(hasAnimalType(type)){
+            return;
+        }
         
+        for (int i = 0; i < animalsType.length; i++) {
+            if (animalsType[i] == null) {
+                animalsType[i] = type;
+                return;
+            }
+        }
     }
     
-    public Zookeeper(String name, String dob, String address, int pps, Subtype firstcare,Subtype secondcare) {
-        super(name, dob, address, pps);     
-      
-    }
-    public Zookeeper(String name, String dob, String address, int pps, Subtype firstcare,Subtype secondcare, Subtype thirdcare) {
-        super(name, dob, address, pps);  
-     
-    }
-
-    public Subtype getFirstcare() {
-        return firstcare;
-    }
-
-    public Subtype getSecondcare() {
-        return secondcare;
-    }
-
-    public Subtype getThirdcare() {
-        return thirdcare;
-    }
-
-    public void setFirstcare(Subtype firstcare) {
-        this.firstcare = firstcare;
-    }
-
-    public void setSecondcare(Subtype secondcare) {
-        this.secondcare = secondcare;
-    }
-
-    public void setThirdcare(Subtype thirdcare) {
-        this.thirdcare = thirdcare;
+    private boolean isAnimalCompatible(Animal animal){
+        for (Subtype at : animalsType) {
+            if (
+                 at.toString().equals(animal.getType())
+                    ||
+                 at.toString().equals(animal.getSubtype().toString())
+               )
+            {
+                return true;
+            }
+        }
+        return false;
     }
     
-     
-    
+    private boolean hasAnimalType(Subtype type){
+        for (int i = 0; i < animalsType.length; i++) {
+            if (animalsType[i] == type) {
+                return true;
+            }
+        }
+        return false;
     }
-
-    
-        
-    
-    
-
-    
-    
-    
-    
-    
-
-
+  }

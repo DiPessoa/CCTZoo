@@ -46,9 +46,30 @@ public class CCTZoo {
         
         
        String date = RandomDate.getRandomDate(2000, 2010);
-        
-        System.out.println(date);
-        
+       Zookeeper zk = new Zookeeper("Gabriel", date, "Endereco", 0);
+       zk.setAnimalType(Subtype.REPTILE);
+       zk.setAnimalType(Subtype.AVIAN);
+       zk.setAnimalType(Subtype.MAMMAL);
+       
+       Mammal macaco = new Mammal(1, "Diogo", 'f', "kkkk", "dateArival", Subtype.AVIAN);
+       Mammal abc = new Mammal(1, "Gabriel", 'f', "kkkk", "dateArival", Subtype.AVIAN);
+       Mammal def = new Mammal(1, "Joao", 'f', "kkkk", "dateArival", Subtype.AVIAN);
+       Mammal hij = new Mammal(1, "Malaquias", 'f', "kkkk", "dateArival", Subtype.AVIAN);
+       Mammal klm = new Mammal(1, "Ronaldo", 'f', "kkkk", "dateArival", Subtype.AVIAN);
+       Mammal nop = new Mammal(1, "Astolfo", 'f', "kkkk", "dateArival", Subtype.AVIAN);
+       Mammal qrs = new Mammal(1, "Jorge", 'f', "kkkk", "dateArival", Subtype.AVIAN);
+       Mammal tuv = new Mammal(1, "Ubirata", 'f', "kkkk", "dateArival", Subtype.AVIAN);
+       
+       zk.addAnimal(macaco);
+       zk.addAnimal(abc);
+       zk.addAnimal(def);
+       zk.addAnimal(hij);
+       zk.addAnimal(klm);
+       zk.addAnimal(nop);
+       zk.addAnimal(qrs);
+       zk.addAnimal(tuv);
+       
+        System.out.println(zk.getAnimalsList());
     }
 
 }

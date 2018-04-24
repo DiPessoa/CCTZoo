@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
 /**
  *
  * @author Diogo Pessoa
+ * codigo baseado em olhar no whatapp
+ * 
  */
 public class RandomDate {
     
