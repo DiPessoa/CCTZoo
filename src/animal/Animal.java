@@ -5,6 +5,7 @@ import interfaces.IAquatic;
 import interfaces.IAvian;
 import interfaces.IMessage;
 import java.util.ArrayList;
+import employee.Zookeeper;
 
 /**
  *
@@ -17,29 +18,33 @@ abstract class Animal implements IAvian, IAquatic, IMessage {
     final private String dob;
     final private char gender;
     final private String dateArrival;
-      private Subtype subtype;
+    private Subtype subtype;
     private int exibitNumber;
     private boolean vaccine = false;
     private ArrayList<Medication> medication = new ArrayList<Medication>();
     private boolean isDead = false;
     private String dod;
     private ArrayList<Offspring> offSpring = new ArrayList<Offspring>();
+    private Zookeeper zookeeper;
     
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
+    
+    public Animal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType, Zookeeper zookeeper) {
         this.animalID = animalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
         this.subtype = subType;
+        this.zookeeper = zookeeper;
     }
 
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival) {
+    public Animal(int animalID, String name, char gender, String dob, String dateArrival, Zookeeper zookeeper) {
         this.animalID = animalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
+        this.zookeeper = zookeeper;
     }
     public void setOffSpring(ArrayList<Offspring> offSpring) {
         this.offSpring = offSpring;
