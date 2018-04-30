@@ -9,13 +9,13 @@ abstract class Employee {
     private String name;
     private String dob;
     private String address;
-    private int pps;
+    private String pps;
     
     public Employee(){
 
     }
 
-    public Employee(String name, String dob, String address, int pps){
+    public Employee(String name, String dob, String address, String pps){
         this.name = name;
         this.dob = dob;
         this.address = address;
@@ -35,7 +35,7 @@ abstract class Employee {
         return address;
     }
 
-    public int getPps() {
+    public String getPps() {
         return pps;
     }
 
@@ -51,7 +51,7 @@ abstract class Employee {
         this.address = address;
     }
 
-    public void setPps(int pps) {
+    public void setPps(String pps) {
         this.pps = pps;
     }
 

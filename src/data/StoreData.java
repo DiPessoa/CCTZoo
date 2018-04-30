@@ -27,7 +27,6 @@ public class StoreData {
         "galapagos", "hamster", "horse", "lemur", "llama", "lynx", "pig", "polar bear", "sloth",
         "tarantula", "tortoise", "rhino"};
 
-    //public String[] animalDob = new String[]{};
     public static String[] animalDob = RandomDate.populateArray(2000, 2010);
 
     public static char[] animalGender = new char[]{'M', 'F'};
@@ -40,17 +39,12 @@ public class StoreData {
     public static String[] animalMedication = new String[]{""};
 
 //TODO: RESOLVER OFFSPRING
-//    public Offspring[] animalOffspring = new Offspring[] {};
-    //public static String[] animalDateDod = new String[]{};
-    public static String[] animalDateDod = RandomDate.populateArray(2011, 2017);
 
-    
-    //problema se estiver morto a variavel tem que ser true
-    public static boolean[] animalIsDead = new boolean[]{true, false};
+    public static String[] animalDateDod = RandomDate.populateArray(2011, 2017);
 
     public static boolean[] animalVaccine = new boolean[]{true, false};
 
-    public static String[] animalZookeeper = new String[]{"Luana", "Diogo", "Luzilene",
+    public static String[] zookeeperName = new String[]{"Luana", "Diogo", "Luzilene",
         "Jorge", "Joao", "Gabriel", "Boris", "Jonh", "Eoife", "Eoin", "Dermot",
         "Gerard", "Michael", "Mark", "Jenny", "Tristan", "Lovelie",
         "Cloe", "Steve", "Cristoff", "Katleen", "Edward", "Rosalinda",
@@ -58,6 +52,19 @@ public class StoreData {
         "Justine", "Judith", "Joseph", "Joe", "Patrick", "Mathew", "Angela",
         "Jessica", "Barbara", "Agnes", "Paolo", "Eva", "Leornad", "Fernando",
         "Laura", "Rafael", "Eliska", "Mio", "Afonso", "Pamela"};
+    
+    public static String[] zookeeperDob = RandomDate.populateArray(1970, 1995);
+    
+    public static String[] zookeeperAddress = {"123 Parnell St", "34 Dermont St", "78 Inns Quay", "32 Rock Road"};
+    
+    public static String[] zookeeperPps = {"123456CA", "356244BV", "234567RE", "098567FR", "643542GG", "643552HG"};
+    
+    
+    
+    
+    
+    
+    
 
     //Popula os vertores de data - passar esse metodo para RandomDate
 //    public static String[] populateArray(int yearMin, int yearMax) {

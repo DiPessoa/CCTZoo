@@ -87,7 +87,7 @@ public class CCTZoo {
 //    RandomDate.populateArray(2000, 2018);
 //StoreDate.populateArray(1900, 1920);
         for (String animalDob : StoreData.animalDob) {
-            System.out.println(animalDob);
+            //System.out.println(animalDob);
         }
         SetupData sd = new SetupData(100, 40);
     }

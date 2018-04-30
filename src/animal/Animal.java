@@ -13,8 +13,8 @@ import employee.Zookeeper;
  */
 public abstract class Animal implements IAvian, IAquatic, IMessage {
 
-    private static int animalID;
-    private static int lastanimalID;
+    private final int animalID;
+    public static int lastanimalID = 0;
     private String name;
     
     private String dob;
@@ -33,11 +33,11 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     //TODO: Set zookeeper
     
     public Animal(){
-        lastanimalID = 0;
         animalID = ++lastanimalID;
     }
     
     public Animal(String name, char gender, String dob, String dateArrival, Subtype subType, Zookeeper zookeeper) {
+        animalID = ++lastanimalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
@@ -47,6 +47,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     }
     
     public Animal(String name, char gender, String dob, String dateArrival, Subtype subType) {
+        animalID = ++lastanimalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
@@ -56,6 +57,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     }
 
     public Animal(String name, char gender, String dob, String dateArrival, Zookeeper zookeeper) {
+        animalID = ++lastanimalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
@@ -64,6 +66,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     }
     
     public Animal(String name, char gender, String dob, String dateArrival) {
+        animalID = ++lastanimalID;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
@@ -71,10 +74,6 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         this.zookeeper = zookeeper;
     }
     
-    public static void setAnimalID(int animalID) {
-        Animal.animalID = animalID;
-    }
-
     public void setName(String name) {
         this.name = name;
     }

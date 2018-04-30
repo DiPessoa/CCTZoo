@@ -11,6 +11,7 @@ import animal.Avian;
 import animal.Insect;
 import animal.Mammal;
 import animal.Reptile;
+import animal.classification.Subtype;
 import employee.Zookeeper;
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,9 +22,9 @@ import java.util.Random;
  */
 public class SetupData {
 
-    public ArrayList<Animal> animalList = new ArrayList();
-    public ArrayList<Zookeeper> zookeepersList = new ArrayList();
-    public static Random randomNum = new Random();
+    public ArrayList<Animal> animalList             = new ArrayList();
+    public ArrayList<Zookeeper> zookeepersList      = new ArrayList();
+    private static Random randomNum                 = new Random();
     
     public SetupData(int aCount, int zCount) {
         createAnimalList(aCount);
@@ -31,7 +32,11 @@ public class SetupData {
         
         populateAnimal();
         populateZookeeper();
+        
+        setAnimalZookeeper();
     }
+    
+    
 
     private void createAnimalList(int count) {
         for (int i = 0; i < count; i++) {
@@ -75,7 +80,6 @@ public class SetupData {
     }
 
     private void populateAnimal() {
-        
         for (Animal animal : animalList) {
             animal.setName(StoreData.animalNames[randomNum.nextInt(StoreData.animalNames.length)]);
             animal.setDob(StoreData.animalDob[randomNum.nextInt(StoreData.animalDob.length)]);
@@ -83,17 +87,54 @@ public class SetupData {
             animal.setDateArrival(StoreData.animalDateArrival[randomNum.nextInt(StoreData.animalDateArrival.length)]);
             animal.setSubtype(StoreData.animalSubtype[randomNum.nextInt(StoreData.animalSubtype.length)]);
             animal.setVaccine(randomNum.nextBoolean());
-            //TODO:
-            //animal.setZookeeper(StoreData.animalGender[randomNum.nextInt(StoreData.Gender.length)]);
-            /**/
-            System.out.println(animal.toString());
         }
     }
 
     private void populateZookeeper() {
-        for (Zookeeper keeper : zookeepersList) {
-            
+        for (Zookeeper zookeeper : zookeepersList) {
+            zookeeper.setName(StoreData.zookeeperName[randomNum.nextInt(StoreData.zookeeperName.length)]);
+            zookeeper.setDob(StoreData.zookeeperDob[randomNum.nextInt(StoreData.zookeeperDob.length)]);
+            zookeeper.setAddress(StoreData.zookeeperAddress[randomNum.nextInt(StoreData.zookeeperAddress.length)]);
+            zookeeper.setPps(StoreData.zookeeperPps[randomNum.nextInt(StoreData.zookeeperPps.length)]);
+            for (int i = 0; i < StoreData.animalSubtype.length; i++) {
+                zookeeper.setAnimalType(StoreData.animalSubtype[randomNum.nextInt(StoreData.animalSubtype.length)]);
+            }
         }
     }
-
+    
+    private void setAnimalZookeeper() {
+        Mammal mm = new Mammal();
+        //mm.setZookeeper(getValidZookeeper(mm));
+        
+        /*
+        System.out.println(zookeepersList.get(0).getAnimalsType()[0]);
+        System.out.println(zookeepersList.get(0).getAnimalsType()[1]);
+        System.out.println(zookeepersList.get(0).getAnimalsType()[2]);
+        
+        /**/
+        
+        for (Animal animal : animalList) {
+            animal.setZookeeper(getValidZookeeper(animal));
+            System.out.println(animal.getName() + " || ID: " + animal.getAnimalID() +  " || Type: " + animal.getType() + " || Subtype: " + animal.getSubtype());
+            System.out.println("\t"   + animal.getZookeeper().toString());
+            System.out.println("\t\t" + animal.getZookeeper().getAnimalsType()[0] + " || " + animal.getZookeeper().getAnimalsType()[1] + " || " + animal.getZookeeper().getAnimalsType()[2]);
+            System.out.println("----------------------------------------------------------");
+        }
+        /**/
+    }
+    
+    public Zookeeper getValidZookeeper(Animal animal){
+        //TODO: controlar em caso de nao encontrar nenhum cuidador valido
+        int randomKeeperIndex = randomNum.nextInt(zookeepersList.size());
+        boolean isCompatible = zookeepersList.get(randomKeeperIndex).isAnimalCompatible(animal);
+        boolean isAvailable = zookeepersList.get(randomKeeperIndex).isAvailable();
+        Zookeeper zk = zookeepersList.get(randomKeeperIndex);
+        
+        if(isCompatible && isAvailable){
+            return zk;
+        }else{
+            return getValidZookeeper(animal);
+        }
+    }
+    
 }

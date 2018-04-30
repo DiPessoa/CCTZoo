@@ -9,6 +9,7 @@ import animal.classification.Subtype;
 import animal.Animal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  *
@@ -17,16 +18,18 @@ import java.util.Arrays;
 public class Zookeeper extends Employee{
        
     private int maxAnimals = 10;
-    private int maxTypes = 3;
+    public static int maxTypes = 3;
     
     private Subtype[] animalsType = new Subtype[maxTypes];
     private ArrayList<Animal> animalsList = new ArrayList<>();
+    
+    private Random randomNum = new Random();
     
     public Zookeeper(){
         
     }
     
-    public Zookeeper(String name, String dob, String address, int pps) {
+    public Zookeeper(String name, String dob, String address, String pps) {
         super(name, dob, address, pps);
     }
     
@@ -69,18 +72,27 @@ public class Zookeeper extends Employee{
         }
     }
     
-    private boolean isAnimalCompatible(Animal animal){
-        for (Subtype at : animalsType) {
-            if (
-                 at.toString().equals(animal.getType())
-                    ||
-                 at.toString().equals(animal.getSubtype().toString())
-               )
-            {
-                return true;
+    public boolean isAnimalCompatible(Animal animal){
+        try {
+            for (Subtype at : animalsType) {
+                if (
+                     at.toString().equals(animal.getType())
+                        ||
+                     at.toString().equals(animal.getSubtype().toString())
+                   )
+                {
+                    return true;
+                }
             }
+        } catch (Exception e) {
+            //TODO: handle exception
         }
+        
         return false;
+    }
+    
+    public boolean isAvailable(){
+        return animalsList.size() < 10;
     }
     
     private boolean hasAnimalType(Subtype type){
@@ -90,5 +102,14 @@ public class Zookeeper extends Employee{
             }
         }
         return false;
+    }
+    
+    public Subtype[] getAnimalsType() {
+        return animalsType;
+    }
+    
+    @Override
+    public String toString(){
+        return this.getName() + " || " + this.getDob() + " || " + this.getPps();
     }
   }
