@@ -10,6 +10,10 @@ import animal.classification.Subtype;
 public class Reptile extends Animal{
 
     private boolean shedSkin;
+    
+    public Reptile(){
+        
+    }
 
     public Reptile (int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
         super(animalID, name, gender, dob, dateArrival, subType);

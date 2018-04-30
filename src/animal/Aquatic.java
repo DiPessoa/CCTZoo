@@ -8,7 +8,11 @@ import animal.classification.Subtype;
  */
 public class Aquatic extends Animal {
 
-    final private boolean marine;
+    private boolean marine;
+    
+    private Aquatic(){
+        
+    }
 
     public Aquatic(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType, boolean marine) {
         super(animalID, name, gender, dob, dateArrival, subType);

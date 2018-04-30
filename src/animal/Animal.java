@@ -13,20 +13,26 @@ import employee.Zookeeper;
  */
 public abstract class Animal implements IAvian, IAquatic, IMessage {
 
-    final private int animalID;
-    final private String name;
-    final private String dob;
-    final private char gender;
-    final private String dateArrival;
+    private static int animalID;
+    private static int lastanimalID;
+    private String name;
+    private String dob;
+    private char gender;
+    private String dateArrival;
     private Subtype subtype;
     private int exibitNumber;
     private boolean vaccine = false;
-    private ArrayList<Medication> medication = new ArrayList<Medication>();
+    private ArrayList<Medication> medication = new ArrayList<>();
     private boolean isDead = false;
     private String dod;
-    private ArrayList<Offspring> offSpring = new ArrayList<Offspring>();
+    private ArrayList<Offspring> offSpring = new ArrayList<>();
     private Zookeeper zookeeper;
+    //TODO: Set zookeeper
     
+    public Animal(){
+        lastanimalID = 0;
+        animalID = ++lastanimalID;
+    }
     
     public Animal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType, Zookeeper zookeeper) {
         this.animalID = animalID;
@@ -146,6 +152,14 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     public String getType(){
         String type = getClass().getName().substring(getClass().getName().indexOf(".") + 1, getClass().getName().length());
         return type.toUpperCase();
+    }
+    
+    public Zookeeper getZookeeper() {
+        return zookeeper;
+    }
+
+    public void setZookeeper(Zookeeper zookeeper) {
+        this.zookeeper = zookeeper;
     }
     
     //TODO: to string do animal, retorna nome e dados bla bla bla
