@@ -16,6 +16,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     private static int animalID;
     private static int lastanimalID;
     private String name;
+    
     private String dob;
     private char gender;
     private String dateArrival;
@@ -23,7 +24,9 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     private int exibitNumber;
     private boolean vaccine = false;
     private ArrayList<Medication> medication = new ArrayList<>();
+    //O ideal eh remover isDead de toda a estrutura
     private boolean isDead = false;
+    // consequentemente dod eh removido junto ao isDead
     private String dod;
     private ArrayList<Offspring> offSpring = new ArrayList<>();
     private Zookeeper zookeeper;
@@ -34,8 +37,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         animalID = ++lastanimalID;
     }
     
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType, Zookeeper zookeeper) {
-        this.animalID = animalID;
+    public Animal(String name, char gender, String dob, String dateArrival, Subtype subType, Zookeeper zookeeper) {
         this.name = name;
         this.gender = gender;
         this.dob = dob;
@@ -44,8 +46,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         this.zookeeper = zookeeper;
     }
     
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
-        this.animalID = animalID;
+    public Animal(String name, char gender, String dob, String dateArrival, Subtype subType) {
         this.name = name;
         this.gender = gender;
         this.dob = dob;
@@ -54,8 +55,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         this.zookeeper = zookeeper;
     }
 
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival, Zookeeper zookeeper) {
-        this.animalID = animalID;
+    public Animal(String name, char gender, String dob, String dateArrival, Zookeeper zookeeper) {
         this.name = name;
         this.gender = gender;
         this.dob = dob;
@@ -63,13 +63,32 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         this.zookeeper = zookeeper;
     }
     
-    public Animal(int animalID, String name, char gender, String dob, String dateArrival) {
-        this.animalID = animalID;
+    public Animal(String name, char gender, String dob, String dateArrival) {
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
         this.zookeeper = zookeeper;
+    }
+    
+    public static void setAnimalID(int animalID) {
+        Animal.animalID = animalID;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    public void setDateArrival(String dateArrival) {
+        this.dateArrival = dateArrival;
     }
     
     public void setOffSpring(ArrayList<Offspring> offSpring) {

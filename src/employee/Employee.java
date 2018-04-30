@@ -11,15 +11,17 @@ abstract class Employee {
     private String address;
     private int pps;
     
+    public Employee(){
 
+    }
 
-public Employee(String name, String dob, String address, int pps){
-    this.name = name;
-    this.dob = dob;
-    this.address = address;
-    this.pps = pps;
+    public Employee(String name, String dob, String address, int pps){
+        this.name = name;
+        this.dob = dob;
+        this.address = address;
+        this.pps = pps;
 
-}
+    }
 
     public String getName() {
         return name;

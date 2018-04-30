@@ -15,13 +15,13 @@ public class Mammal extends Animal {
     
     }
 
-    public Mammal(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
-        super(animalID, name, gender, dob, dateArrival, subType);
+    public Mammal(String name, char gender, String dob, String dateArrival, Subtype subType) {
+        super(name, gender, dob, dateArrival, subType);
 
     }
 
-    public Mammal(int animalID, String name, char gender, String dob, String dateArrival) {
-        super(animalID, name, gender, dob, dateArrival);
+    public Mammal(String name, char gender, String dob, String dateArrival) {
+        super(name, gender, dob, dateArrival);
 
     }
 

@@ -6,9 +6,10 @@ import animal.Mammal;
 import animal.Offspring;
 import animal.Reptile;
 import animal.classification.Subtype;
+import data.SetupData;
 import employee.*;
 import utilities.RandomDate;
-import data.StoreDate;
+import data.StoreData;
 
 /**
  *
@@ -34,7 +35,7 @@ public class CCTZoo {
 //        
 //        Reptile cobra = new Reptile(22, "Lu", 'M', "23/11/2018", "22/11/2019", Subtype.AQUATIC);
 //        System.out.println("Is able to swin?" + cobra.isAbleToSwin());
-//        
+//
 //        
 //        System.out.println(cobra.isDead());
 //        
@@ -44,7 +45,7 @@ public class CCTZoo {
 //        
 //        Zookeeper k1 = new Zookeeper("Mark", "21/1963", "Ballyogan",12345, Subtype.AQUATIC);
 //        Zookeeper k2 = new Zookeeper("Mark", "21/1963", "Ballyogan",12345, Subtype.AQUATIC, Subtype.INSECT);
-//        
+//
 //        
 //       String date = RandomDate.getRandomDate(2000, 2010);
 //       Zookeeper zk = new Zookeeper("Gabriel", date, "Endereco", 0);
@@ -85,15 +86,10 @@ public class CCTZoo {
 ////        }
 //    RandomDate.populateArray(2000, 2018);
 //StoreDate.populateArray(1900, 1920);
-
-
-        for (int i = 0; i < StoreDate.animalDob.length; i++) {
-            System.out.println(StoreDate.animalDob[i]);
+        for (String animalDob : StoreData.animalDob) {
+            System.out.println(animalDob);
         }
-
-;
-        
-        
+        SetupData sd = new SetupData(100, 40);
     }
 
 }

@@ -16,11 +16,15 @@ import java.util.Arrays;
  */
 public class Zookeeper extends Employee{
        
-    private final int maxAnimals = 10;
-    private final int maxTypes = 3;
+    private int maxAnimals = 10;
+    private int maxTypes = 3;
     
-    private final Subtype[] animalsType = new Subtype[maxTypes];
-    private final ArrayList<Animal> animalsList = new ArrayList<>();
+    private Subtype[] animalsType = new Subtype[maxTypes];
+    private ArrayList<Animal> animalsList = new ArrayList<>();
+    
+    public Zookeeper(){
+        
+    }
     
     public Zookeeper(String name, String dob, String address, int pps) {
         super(name, dob, address, pps);

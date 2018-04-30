@@ -15,13 +15,13 @@ public class Insect extends Animal {
     
     }
 
-    public Insect(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
-        super(animalID, name, gender, dob, dateArrival, subType);
+    public Insect(String name, char gender, String dob, String dateArrival, Subtype subType) {
+        super(name, gender, dob, dateArrival, subType);
 
     }
 
-    public Insect(int animalID, String name, char gender, String dob, String dateArrival) {
-        super(animalID, name, gender, dob, dateArrival);
+    public Insect(String name, char gender, String dob, String dateArrival) {
+        super(name, gender, dob, dateArrival);
 
     }
 

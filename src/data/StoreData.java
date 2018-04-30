@@ -12,8 +12,7 @@ import utilities.RandomDate;
  *
  * @author Diogo Pessoa
  */
-public class StoreDate {
-
+public class StoreData {
 
     public static String[] animalNames = new String[]{"squirrel", "eagle", "elephant", "lion",
         "wild cat", "parrot", "crow", "goose", "fox", "red fox", "dragon", "pelican",

@@ -15,14 +15,13 @@ public class Avian extends Animal {
         
     }
 
-    public Avian(int animalID, String name, char gender, String dob, String dateArrival, Subtype subType) {
-        super(animalID, name, gender, dob, dateArrival, subType);
+    public Avian(String name, char gender, String dob, String dateArrival, Subtype subType) {
+        super(name, gender, dob, dateArrival, subType);
 
     }
 
-    public Avian(int animalID, String name, char gender, String dob, String dateArrival) {
-        super(animalID, name, gender, dob, dateArrival);
-
+    public Avian(String name, char gender, String dob, String dateArrival) {
+        super(name, gender, dob, dateArrival);
     }
 
     public boolean isHatching() {
