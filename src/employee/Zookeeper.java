@@ -111,7 +111,7 @@ public class Zookeeper extends Employee{
     @Override
     public String toString(){
         String output;
-        String qualifications = "  Qualification:" ;
+        String qualifications = "  Qualification: " ;
         
         output = "----Zookeeper----\n"; 
         output += "  Name: " + this.name + "\n";

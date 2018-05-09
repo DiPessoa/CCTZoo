@@ -3,6 +3,8 @@ package menu;
 import animal.Animal;
 import animal.classification.Subtype;
 import data.SetupData;
+import data.StoreData;
+import employee.Zookeeper;
 import java.util.*;
 
 public class Menu {
@@ -12,7 +14,6 @@ public class Menu {
     private int mainSelection = 0;
     private int operation = 0;
     private int animalType = 0;
-   
 
     public void display_menu() {
         System.out.println("Choose what you would like to manage");
@@ -20,61 +21,33 @@ public class Menu {
         System.out.print("Selection: ");
     }
 
-    public void display_menu_main_options() {
+    public void display_operations() {
         System.out.println("Choose the operation");
-        System.out.println("1)Search 1\n2) Add 2\n3) Remove 3");
+        System.out.println("1)Search 1\n2) Add 2\n3) Update 3");
         System.out.print("Selection: ");
-        operations();
-    }
-
-    public void display_menu_after_operations() {
-        switch (mainSelection){
-            case 1:
-                //TODO animals
-                display_animal_type();
-                animal_type();
-                break;
-            case 2:
-                // TODO keeper
-                //TODO operation search add or update
-                run_keeper_operation();
-               
-                break;
-            default:
-                return;
-        }
     }
     
-    public void run_keeper_operation(){
-        switch(operation){
-            case 1:
-                //TODO list keepers
-                System.out.println("Inform the Zookeeper ID  for more info or 9 to go the main menu ");
-                int zoochoice = in.nextInt();
-                System.out.println(SetupData.getZookeepersList().get(zoochoice-1));
-                
-                
-                
-                break;
-            case 2:
-                //TODO add keepers
-                System.out.println("TODO add keepers");
-                break;
-            case 3:
-                //TODO udpate keepers
-                System.out.println("TODO udpate keepers");
-                break;
-            default:
-                return;
-        }
-    }
-    
-    public void display_animal_type(){
+    public void display_animal_type() {
         System.out.println("Choose the Type");
         System.out.println("1) Aquatic 1\n2) Avian 2\n3) Insect 3\n4) Mammal 4\n5) Reptile 5");
         System.out.print("Selection: ");
     }
 
+    public void operation() {
+        switch (mainSelection) {
+            case 1:
+                display_animal_type();
+                animalType = in.nextInt();
+                run();
+                break;
+            case 2:
+                run();
+                break;
+            default:
+                return;
+        }
+    }
+    
     public void question() {
         System.out.println("Would you like to proceed or quit?");
         System.out.println("To proceed enter 9.");
@@ -95,27 +68,18 @@ public class Menu {
                 break;
         }
     }
-
-    public void operations() {
-        in = new Scanner(System.in);
-        int choice = in.nextInt();
-        operation = choice;
-        display_menu_after_operations();
-    }
-
-    public void runOperation() {
+    
+    public void run() {
 
         switch (operation) {
             case 1:
-                //TODO: List
                 list();
                 break;
             case 2:
-                //TODO: Add
                 add();
                 break;
             case 3:
-                //TODO: Remove
+                //TODO: update
                 remove();
                 break;
 
@@ -127,31 +91,29 @@ public class Menu {
     }
 
     public void animal_type() {
-        in = new Scanner(System.in);
-        int choice = in.nextInt();
-        animalType = choice;
-        runOperation();
+        
+        
     }
-    
-  
 
     public Menu() {
         in = new Scanner(System.in);
+        
         display_menu();
-        int choice = in.nextInt();
-        mainSelection = choice;
-
-        switch (choice) {
+        
+        mainSelection = in.nextInt();
+        
+        display_operations();
+        
+        operation = in.nextInt();
+        
+        operation();
+        
+        switch (mainSelection) {
             case 1:
-                //TODO Animals
-                System.out.println("You picked Animals");
-                display_menu_main_options();
+                //TODO paramos aqui
                 break;
 
             case 2:
-                //TODO Keepers
-                System.out.println("You picked Keepers");
-                display_menu_main_options();
                 break;
 
             default:
@@ -166,7 +128,7 @@ public class Menu {
                 //TODO: List animals
                 System.out.println("List animals: " + animalType);
                 String type = "";
-                switch(animalType){
+                switch (animalType) {
                     case 1:
                         type = "AQUATIC";
                         break;
@@ -181,19 +143,24 @@ public class Menu {
                         break;
                     case 5:
                         type = "REPTILE";
-                        break;    
+                        break;
                 }
                 Animal.list(type);
                 System.out.println("Inform the Animal ID  for more info or 9 to go the main menu ");
                 int choice = in.nextInt();
-                System.out.println(SetupData.getAnimalList().get(choice));
+                System.out.println(SetupData.getAnimalList().get(choice-1));
                 break;
             case 2:
-                //TODO: List Keepers
-            
-               System.out.println("Inform the Zookeeper ID  for more info or 9 to go the main menu ");
-               
-               break;
+                for (Zookeeper object : SetupData.getZookeepersList()) {
+                    System.out.println(object);
+                }
+                
+                System.out.println("Inform the Zookeeper ID  for more info or 9 to go the main menu ");
+                
+                int zoochoice = in.nextInt();
+                System.out.println(SetupData.getZookeepersList().get(zoochoice - 1));
+
+                break;
 
             default:
                 break;
@@ -203,40 +170,40 @@ public class Menu {
     public void add() {
         switch (mainSelection) {
             case 1:
-                
+
                 System.out.println("Inform the animal's name: ");
                 String name = in.next();
-                
+
                 System.out.println("Inform the animal's gender: \n(M - Masculine or F - Feminine)");
-                char gender  = (char)in.next().charAt(0);
-                                
+                char gender = (char) in.next().charAt(0);
+
                 System.out.println("Inform the animal's date of birth: ");
                 String dob = in.next();
-                
+
                 System.out.println("Inform the animal's date of arrival: \n(Type in Null if the animal born in the zoo)");
                 String dateArrival = in.next();
-                
+
                 System.out.println("Inform if the animal has Offspring: \n(Type in True or False)");
                 Boolean offSpring = in.nextBoolean();
-                
+
                 System.out.println("Inform the subtype: \n(Subtypes - 1 - Aquatic, 2 - Avian, 3 - Insect, 4 - Mammal, 5 - Reptile)");
                 int subtype = in.nextInt();
-                
+
                 System.out.println("Inform if the animal was vaccinated: \n(Type in True or False)");
                 Boolean vaccine = in.nextBoolean();
-                
+
                 Animal na = SetupData.createAnimal(animalType);
-                
+
                 na.setName(name);
                 na.setGender(gender);
                 na.setDob(dob);
                 na.setDateArrival(dateArrival);
                 na.setOffSpring(offSpring);
                 na.setVaccine(vaccine);
-                
+
                 Subtype st = Subtype.NULL;
-                
-                switch(subtype){
+
+                switch (subtype) {
                     case 1:
                         st = Subtype.AQUATIC;
                         break;
@@ -253,14 +220,35 @@ public class Menu {
                         st = Subtype.REPTILE;
                         break;
                 }
-                
+
                 na.setSubtype(st);
                 SetupData.addAnimal(na);
                 break;
-                
+
             case 2:
-                //TODO: add Keepers
-                System.out.println("Add Keepers");
+
+                System.out.println("Inform the Zookeeper's name: ");
+                String zname = in.next();
+
+                System.out.println("Inform the Zookeeper's date of birth: ");
+                String zdob = in.next();
+
+                System.out.println("Inform the Zookeeper's address: ");
+                String zaddress = in.next();
+
+                System.out.println("Inform the Zookeeper's pps: ");
+                String zpps = in.next();
+
+                Zookeeper zk = new Zookeeper(zname, zdob, zaddress, zpps);
+
+                Random randomNum = new Random();
+
+                for (int i = 0; i < StoreData.animalSubtype.length; i++) {
+                    zk.setAnimalType(StoreData.animalSubtype[randomNum.nextInt(StoreData.animalSubtype.length)]);
+                }
+
+                SetupData.addZookeeper(zk);
+                
                 break;
 
             default:
@@ -283,9 +271,5 @@ public class Menu {
             default:
                 break;
         }
-    }
-
-    public static void main(String[] args) {
-        new Menu();
     }
 }

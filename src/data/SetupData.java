@@ -53,6 +53,10 @@ public class SetupData {
     public static void addAnimal(Animal animal){
         animalList.add(animal);
     }
+    
+    public static void addZookeeper(Zookeeper zookeeper){
+        zookeepersList.add(zookeeper);
+    }
 
     public static Animal createAnimal(int number) {
         Animal an;
