@@ -149,7 +149,7 @@ public class Menu {
                            
                 }
                 Animal.list(type);
-                System.out.println("Inform the Animal ID  for more info or 9 to go the main menu ");
+                System.out.println("Inform the Animal ID ");
                 int choice = in.nextInt();
                 System.out.println(SetupData.getAnimalList().get(choice-1));
                 break;
@@ -158,7 +158,7 @@ public class Menu {
                     System.out.println(object);
                 }
                 
-                System.out.println("Inform the Zookeeper ID  for more info or 9 to go the main menu ");
+                System.out.println("Inform the Zookeeper ID ");
                 
                 int zoochoice = in.nextInt();
                 System.out.println(SetupData.getZookeepersList().get(zoochoice - 1));
@@ -264,7 +264,7 @@ public class Menu {
         switch (mainSelection) {
             case 1:
                 System.out.println(SetupData.getAnimalList());
-                System.out.println("Inform the Animal ID  for more info or 9 to go the main menu ");
+                System.out.println("Inform the Animal ID that you would like to UPDATE");
                 int choice = in.nextInt();
                 System.out.println(SetupData.getAnimalList().get(choice-1));
                 
@@ -273,9 +273,14 @@ public class Menu {
                 
                
             case 2:
+                 System.out.println(SetupData.getZookeepersList());
+                 System.out.println("Inform the Zookeeper ID that you would like to UPDATE ");
+                 int zoochoice = in.nextInt();
+                 System.out.println(SetupData.getZookeepersList().get(zoochoice - 1));
+                 
                 
                      
-                System.out.println("Update Keepers");
+               
                 break;
 
             default:
