@@ -22,8 +22,9 @@ import java.util.Random;
  */
 public class SetupData {
 
-    public ArrayList<Animal> animalList             = new ArrayList();
+    private static ArrayList<Animal> animalList             = new ArrayList();
     public ArrayList<Zookeeper> zookeepersList      = new ArrayList();
+    
     private static Random randomNum                 = new Random();
     
     public SetupData(int aCount, int zCount) {
@@ -104,18 +105,10 @@ public class SetupData {
     
     private void setAnimalZookeeper() {
         Mammal mm = new Mammal();
-        //mm.setZookeeper(getValidZookeeper(mm));
-        
-        /*
-        System.out.println(zookeepersList.get(0).getAnimalsType()[0]);
-        System.out.println(zookeepersList.get(0).getAnimalsType()[1]);
-        System.out.println(zookeepersList.get(0).getAnimalsType()[2]);
-        
-        /**/
         
         for (Animal animal : animalList) {
             animal.setZookeeper(getValidZookeeper(animal));
-            System.out.println(animal.getName() + " || ID: " + animal.getAnimalID() +  " || Type: " + animal.getType() + " || Subtype: " + animal.getSubtype());
+            System.out.println(animal.getName() + " || ID: " + animal.getExibitNumber()+  " || Type: " + animal.getType() + " || Subtype: " + animal.getSubtype());
             System.out.println("\t"   + animal.getZookeeper().toString());
             System.out.println("\t\t" + animal.getZookeeper().getAnimalsType()[0] + " || " + animal.getZookeeper().getAnimalsType()[1] + " || " + animal.getZookeeper().getAnimalsType()[2]);
             System.out.println("----------------------------------------------------------");
@@ -135,6 +128,14 @@ public class SetupData {
         }else{
             return getValidZookeeper(animal);
         }
+    }
+    
+    public static ArrayList<Animal> getAnimalList() {
+        return animalList;
+    }
+
+    public ArrayList<Zookeeper> getZookeepersList() {
+        return zookeepersList;
     }
     
 }

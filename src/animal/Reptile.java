@@ -15,12 +15,12 @@ public class Reptile extends Animal{
         
     }
 
-    public Reptile (String name, char gender, String dob, String dateArrival, Subtype subType) {
-        super(name, gender, dob, dateArrival, subType);
+    public Reptile (String name, char gender, String dob, String dateArrival, boolean offSpring, Subtype subType) {
+        super(name, gender, dob, dateArrival, offSpring, subType);
     }
 
-    public Reptile (String name, char gender, String dob, String dateArrival) {
-        super(name, gender, dob, dateArrival);
+    public Reptile (String name, char gender, String dob, String dateArrival, boolean offSpring) {
+        super(name, gender, dob, dateArrival, offSpring);
     }
     
     public boolean isSheddingSkin() {
@@ -29,5 +29,9 @@ public class Reptile extends Animal{
 
     public void setShedSkin(boolean shedSkin) {
         this.shedSkin = shedSkin;
+    }
+    @Override
+    public String getString (){
+        return "  Shed Skin: " + Boolean.toString(shedSkin) + "\n";
     }
 }

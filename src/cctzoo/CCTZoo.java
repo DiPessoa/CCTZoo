@@ -1,15 +1,19 @@
 package cctzoo;
 
+import animal.Animal;
 import animal.Aquatic;
 import animal.Avian;
 import animal.Mammal;
 import animal.Offspring;
 import animal.Reptile;
+import animal.Insect;
 import animal.classification.Subtype;
 import data.SetupData;
 import employee.*;
 import utilities.RandomDate;
 import data.StoreData;
+import java.util.ArrayList;
+import menu.Menu;
 
 /**
  *
@@ -24,17 +28,7 @@ public class CCTZoo {
      */
     public static void main(String[] args) {
 
-//        Mammal macaco = new Mammal(1, "Diogo", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//        System.out.println("Is able to fly? " + macaco.isAbleToFly());
-//
-//        Aquatic camarao = new Aquatic(1, "Ornitorrinco", 'f', "datadenascimento", "chegou", Subtype.AVIAN, true);
-//        System.out.println("Is able to fly? " + camarao.isAbleToFly());
-//
-//        Avian ave = new Avian(0, "", 'f', "", "");
-//        System.out.println("Is able to fly? " + ave.isAbleToFly());
-//        
-//        Reptile cobra = new Reptile(22, "Lu", 'M', "23/11/2018", "22/11/2019", Subtype.AQUATIC);
-//        System.out.println("Is able to swin?" + cobra.isAbleToSwin());
+
 //
 //        
 //        System.out.println(cobra.isDead());
@@ -54,23 +48,42 @@ public class CCTZoo {
 //       zk.setAnimalType(Subtype.MAMMAL);
 //       
 //       Mammal macaco = new Mammal(1, "Diogo", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//       Mammal abc = new Mammal(1, "Gabriel", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//       Mammal def = new Mammal(1, "Joao", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//       Mammal hij = new Mammal(1, "Malaquias", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//       Mammal klm = new Mammal(1, "Ronaldo", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//       Mammal nop = new Mammal(1, "Astolfo", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//       Mammal qrs = new Mammal(1, "Jorge", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//       Mammal tuv = new Mammal(1, "Ubirata", 'f', "kkkk", "dateArival", Subtype.AVIAN);
-//       
-//       zk.addAnimal(macaco);
-//       zk.addAnimal(abc);
-//       zk.addAnimal(def);
-//       zk.addAnimal(hij);
-//       zk.addAnimal(klm);
-//       zk.addAnimal(nop);
-//       zk.addAnimal(qrs);
-//       zk.addAnimal(tuv);
-//       
+
+        /*
+         Mammal mahh = new Mammal("Luana", 'F', "dob", "dateArrival", true);
+         Mammal dog = new Mammal ("Ferreira",'M', "02.03.2017"," 03.04.2017", false, Subtype.AVIAN);
+         Insect lll = new Insect ("vxvxb", 'F', "tyrt","fhfgh", true );
+         Insect mmm = new Insect ("ddgd", 'M', "213", "3356", false, Subtype.AQUATIC);
+         Aquatic aq = new Aquatic("", 'f', "", "", true, false);
+         Aquatic fg = new Aquatic("", 'f', "", "", false, Subtype.REPTILE, false);
+         Avian hj =  new Avian("", 'f', "", "", true);
+         Avian jk = new Avian ("", 'm', "","", false, Subtype.MAMMAL);
+         Reptile kl = new Reptile("", 'f', "", "", true);
+         Reptile df = new Reptile("", 'f', "", "", false, Subtype.AQUATIC);
+         
+
+         System.out.println(mahh.toString());
+         System.out.println(dog.toString());
+         System.out.println(lll.toString());
+         System.out.println(mmm.toString());
+         System.out.println(aq.toString());
+         System.out.println(fg.toString());
+         System.out.println(hj.toString());
+         System.out.println(jk.toString());
+         System.out.println(kl.toString());
+         System.out.println(df.toString());
+         
+         Zookeeper zk = new Zookeeper("Luana", "jhg", "uoi", "uyguhb");
+         System.out.println(zk.toString());
+         /**/
+         
+        //Menu mn = new Menu();
+        SetupData sd = new SetupData(100, 40);
+        Animal.list("AQUATIC");
+         
+        
+
+    
 //        System.out.println(zk.getAnimalsList());
 //        String[] dates = new String[100];
 //
@@ -86,10 +99,13 @@ public class CCTZoo {
 ////        }
 //    RandomDate.populateArray(2000, 2018);
 //StoreDate.populateArray(1900, 1920);
-        for (String animalDob : StoreData.animalDob) {
-            //System.out.println(animalDob);
-        }
-        SetupData sd = new SetupData(100, 40);
-    }
+//        for (String animalDob : StoreData.animalDob) {
+//            //System.out.println(animalDob);
+//        }
+//        SetupData sd = new SetupData(100, 40);
+//    }
 
+       
+
+    }
 }

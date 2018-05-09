@@ -1,6 +1,7 @@
 package animal;
 
 import animal.classification.Subtype;
+import data.SetupData;
 import interfaces.IAquatic;
 import interfaces.IAvian;
 import interfaces.IMessage;
@@ -13,64 +14,64 @@ import employee.Zookeeper;
  */
 public abstract class Animal implements IAvian, IAquatic, IMessage {
 
-    private final int animalID;
-    public static int lastanimalID = 0;
+    private final int exibitNumber;
+    public static int lastexibitNumber= 0;
     private String name;
     
     private String dob;
     private char gender;
     private String dateArrival;
     private Subtype subtype;
-    private int exibitNumber;
+   
     private boolean vaccine = false;
     private ArrayList<Medication> medication = new ArrayList<>();
-    //O ideal eh remover isDead de toda a estrutura
-    private boolean isDead = false;
-    // consequentemente dod eh removido junto ao isDead
-    private String dod;
-    private ArrayList<Offspring> offSpring = new ArrayList<>();
+    public  boolean offSpring = false;
     private Zookeeper zookeeper;
-    //TODO: Set zookeeper
+
     
     public Animal(){
-        animalID = ++lastanimalID;
+        exibitNumber = ++lastexibitNumber;
     }
     
-    public Animal(String name, char gender, String dob, String dateArrival, Subtype subType, Zookeeper zookeeper) {
-        animalID = ++lastanimalID;
+    public Animal(String name, char gender, String dob, String dateArrival, Subtype subType, boolean offSpring, Zookeeper zookeeper) {
+        exibitNumber = ++lastexibitNumber;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
         this.subtype = subType;
+        this.offSpring = offSpring;
         this.zookeeper = zookeeper;
     }
     
-    public Animal(String name, char gender, String dob, String dateArrival, Subtype subType) {
-        animalID = ++lastanimalID;
+    public Animal(String name, char gender, String dob, String dateArrival, boolean offSpring, Subtype subType) {
+        exibitNumber = ++lastexibitNumber;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
         this.subtype = subType;
+        this.offSpring = offSpring;
         this.zookeeper = zookeeper;
     }
 
-    public Animal(String name, char gender, String dob, String dateArrival, Zookeeper zookeeper) {
-        animalID = ++lastanimalID;
+    public Animal(String name, char gender, String dob, String dateArrival, boolean offSpring, Zookeeper zookeeper) {
+        exibitNumber = ++lastexibitNumber;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
+        this.offSpring = offSpring;
         this.zookeeper = zookeeper;
     }
     
-    public Animal(String name, char gender, String dob, String dateArrival) {
-        animalID = ++lastanimalID;
+    public Animal(String name, char gender, String dob, String dateArrival, boolean offSpring ) {
+        exibitNumber = ++lastexibitNumber;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
+        this.offSpring = offSpring;
         this.zookeeper = zookeeper;
     }
     
@@ -90,14 +91,11 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         this.dateArrival = dateArrival;
     }
     
-    public void setOffSpring(ArrayList<Offspring> offSpring) {
+    public void setOffSpring(boolean offSpring) {
         this.offSpring = offSpring;
     }
 
-    public void setExibitNumber(int exibitNumber) {
-        this.exibitNumber = exibitNumber;
-    }
-
+  
     public void setVaccine(boolean vaccine) {
         this.vaccine = vaccine;
     }
@@ -105,11 +103,11 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     public void setMedication(ArrayList<Medication> medication) {
         this.medication = medication;
     }
-
-    public int getAnimalID() {
-        return animalID;
+    
+    public void setZookeeper(Zookeeper zookeeper){
+        this.zookeeper = zookeeper;
     }
-
+   
     public String getName() {
         return name;
     }
@@ -129,8 +127,15 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     public int getExibitNumber() {
         return exibitNumber;
     }
+    
+    public Zookeeper getZookeeper(){
+        return zookeeper;
+    }
 
-  
+    public boolean isOffSpring() {
+        return offSpring;
+    }
+    
     public Subtype getSubtype() {
         return subtype;
     }
@@ -139,17 +144,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         this.subtype = subType;
     }
     
-    public boolean isDead(){
-        return isDead;
-    }
-    
-    public void setDeath(boolean isDead, String dod){
-      this.isDead = isDead;
-      this.dod = dod;
-    }
-    
-
-    //ciar metodo que conte quanto animais estao no arraylist
+  //ciar metodo que conte quanto animais estao no arraylist
    
     
     @Override
@@ -172,18 +167,43 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         return type.toUpperCase();
     }
     
-    public Zookeeper getZookeeper() {
-        return zookeeper;
-    }
-
-    public void setZookeeper(Zookeeper zookeeper) {
-        this.zookeeper = zookeeper;
+    public String getString (){
+        return "";
     }
     
-    //TODO: to string do animal, retorna nome e dados bla bla bla
+    public static ArrayList<Animal> list (String type){
+        
+        ArrayList<Animal> list = new ArrayList<>();
+        
+        for (Animal currentAnimal : SetupData.getAnimalList()) {
+            if(currentAnimal.getType().equals(type)){
+                list.add(currentAnimal);
+                System.out.print("ID: " + currentAnimal.getExibitNumber());
+                System.out.println(" Name: " + currentAnimal.getName());
+            }
+        }
+        
+        return list;
+    }
+    
+    public void remove(){
+        
+    } 
+    
+   
     @Override
     public String toString(){
-        return name + " dob: " + dob;
+        String output;
+        String subtype = getSubtype() == null ? "Undefined" : this.getSubtype().toString();
+        output = "--- Name: " + this.name + " | Type: " +this.getType()+ " | Subtype: " + subtype + " ----\n";
+        output += "  Exibit Number: " + this.exibitNumber + "\n";
+        output += "  Date of Birth: " + this.dob + " | Gender: " + this.gender + "\n";
+        output += "  Date of Arrival: " + this.dateArrival + "\n";
+        output += "  Vaccine: " + this.vaccine + " | Medication:" + this.medication + "\n";
+        output += "  Offspring: " + this.offSpring + "\n";
+        output += "  Zookeeper: " + this.zookeeper + "\n";
+        output += this.getString();
+        return output;
     }
 
 }

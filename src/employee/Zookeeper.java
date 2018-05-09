@@ -17,7 +17,7 @@ import java.util.Random;
  */
 public class Zookeeper extends Employee{
        
-    private int maxAnimals = 10;
+    private final int maxAnimals = 10;
     public static int maxTypes = 3;
     
     private Subtype[] animalsType = new Subtype[maxTypes];
@@ -110,6 +110,19 @@ public class Zookeeper extends Employee{
     
     @Override
     public String toString(){
-        return this.getName() + " || " + this.getDob() + " || " + this.getPps();
+        String output;
+        String qualifications = "  Qualification: ";
+        
+        output = "--- Zookeeper----\n"; 
+        output += "  Name: " + this.name + "\n";
+        output += "  ID: " + this.employeeID + "\n";
+        output += "  Date of Birth : " + this.dob + "\n";
+        output += "  Address: " + this.address + "\n";
+        output += "  PPS Number: " + this.pps + "\n";
+        for (Subtype subtype : animalsType) {
+            qualifications += subtype + " | ";
+        }
+        output += qualifications;
+        return output;
     }
   }

@@ -6,13 +6,15 @@ package employee;
  */
 abstract class Employee {
     
-    private String name;
-    private String dob;
-    private String address;
-    private String pps;
+    public String name;
+    public String dob;
+    public String address;
+    public String pps;
+    public final int employeeID;
+    public static int lastemployeeID = 0;
     
     public Employee(){
-
+        employeeID = ++lastemployeeID;
     }
 
     public Employee(String name, String dob, String address, String pps){
@@ -20,7 +22,7 @@ abstract class Employee {
         this.dob = dob;
         this.address = address;
         this.pps = pps;
-
+        this.employeeID = ++lastemployeeID;
     }
 
     public String getName() {
@@ -55,8 +57,9 @@ abstract class Employee {
         this.pps = pps;
     }
 
-    
-
+    public int getEmployeeID() {
+        return employeeID;
+    }
 }
 
 

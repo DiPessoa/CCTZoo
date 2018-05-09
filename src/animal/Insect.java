@@ -15,13 +15,13 @@ public class Insect extends Animal {
     
     }
 
-    public Insect(String name, char gender, String dob, String dateArrival, Subtype subType) {
-        super(name, gender, dob, dateArrival, subType);
+    public Insect(String name, char gender, String dob, String dateArrival, boolean offSpring, Subtype subType) {
+        super(name, gender, dob, dateArrival, offSpring, subType);
 
     }
 
-    public Insect(String name, char gender, String dob, String dateArrival) {
-        super(name, gender, dob, dateArrival);
+    public Insect(String name, char gender, String dob, String dateArrival, boolean offSpring) {
+        super(name, gender, dob, dateArrival, offSpring);
 
     }
 
@@ -31,6 +31,10 @@ public class Insect extends Animal {
 
     public void setLayEgg(boolean layEgg) {
         this.layEgg = layEgg;
+    }
+    @Override
+    public String getString (){
+        return "  Lay Egg: " + Boolean.toString(layEgg) + "\n";
     }
 
 }

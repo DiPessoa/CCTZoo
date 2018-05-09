@@ -15,13 +15,15 @@ public class Mammal extends Animal {
     
     }
 
-    public Mammal(String name, char gender, String dob, String dateArrival, Subtype subType) {
-        super(name, gender, dob, dateArrival, subType);
+    public Mammal(String name, char gender, String dob, String dateArrival, boolean offSpring, Subtype subType) {
+        super(name, gender, dob, dateArrival, offSpring, subType);
+        setPregnancy(gender == 'f');
 
     }
 
-    public Mammal(String name, char gender, String dob, String dateArrival) {
-        super(name, gender, dob, dateArrival);
+    public Mammal(String name, char gender, String dob, String dateArrival,boolean offSpring) {
+        super(name, gender, dob, dateArrival, offSpring);
+        setPregnancy(gender == 'f');
 
     }
 
@@ -36,6 +38,12 @@ public class Mammal extends Animal {
             displayMessage("A male animmal can not be pregnant!");
         }
     }
+    
+    @Override
+    public String getString (){
+        return "  Pregnancy: " + Boolean.toString(pregnancy) + "\n";
+    }
+    
     
     @Override
     public String getType(){
