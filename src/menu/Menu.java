@@ -29,7 +29,7 @@ public class Menu {
     
     public void display_animal_type() {
         System.out.println("Choose the Type");
-        System.out.println("1) Aquatic 1\n2) Avian 2\n3) Insect 3\n4) Mammal 4\n5) Reptile 5");
+        System.out.println("1) Aquatic 1\n2) Avian 2\n3) Insect 3\n4) Mammal 4\n5) Reptile 5\n6) All Animals 6");
         System.out.print("Selection: ");
     }
 
@@ -144,6 +144,9 @@ public class Menu {
                     case 5:
                         type = "REPTILE";
                         break;
+                    case 6:
+                        System.out.println(SetupData.getAnimalList());
+                           
                 }
                 Animal.list(type);
                 System.out.println("Inform the Animal ID  for more info or 9 to go the main menu ");
