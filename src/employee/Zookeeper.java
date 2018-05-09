@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package employee;
 
 import animal.classification.Subtype;
@@ -15,55 +10,55 @@ import java.util.Random;
  *
  * @author Diogo Pessoa
  */
-public class Zookeeper extends Employee{
-       
+public class Zookeeper extends Employee {
+
     private final int maxAnimals = 10;
     public static int maxTypes = 3;
-    
+
     private Subtype[] animalsType = new Subtype[maxTypes];
     private ArrayList<Animal> animalsList = new ArrayList<>();
-    
+
     private Random randomNum = new Random();
-    
-    public Zookeeper(){
-        
+
+    public Zookeeper() {
+
     }
-    
+
     public Zookeeper(String name, String dob, String address, String pps) {
         super(name, dob, address, pps);
     }
-    
-    public void addAnimal(Animal animal){
-        if(isAnimalCompatible(animal)){
-            if(getAnimalsCount() < maxAnimals){
+
+    public void addAnimal(Animal animal) {
+        if (isAnimalCompatible(animal)) {
+            if (getAnimalsCount() < maxAnimals) {
                 animalsList.add(animal);
             }
         }
     }
-    
+
     public static boolean useList(String[] arr, String targetValue) {
         return Arrays.asList(arr).contains(targetValue);
     }
-    
-    public int getAnimalsCount(){
+
+    public int getAnimalsCount() {
         return animalsList.size();
     }
-    
-    public String getAnimalsList(){
-        //TODO: corrigir metodo pra imprimir uma string decente
+
+    public String getAnimalsList() {
+
         String list = "";
-        for (Animal currentAnimal: animalsList) {
+        for (Animal currentAnimal : animalsList) {
             list += currentAnimal.getName() + "\n";
         }
         return list;
     }
-    
-    public void setAnimalType(Subtype type){
-        // verifica se ja nao esta na lista
-        if(hasAnimalType(type)){
+
+    public void setAnimalType(Subtype type) {
+
+        if (hasAnimalType(type)) {
             return;
         }
-        
+
         for (int i = 0; i < animalsType.length; i++) {
             if (animalsType[i] == null) {
                 animalsType[i] = type;
@@ -71,31 +66,27 @@ public class Zookeeper extends Employee{
             }
         }
     }
-    
-    public boolean isAnimalCompatible(Animal animal){
+
+    public boolean isAnimalCompatible(Animal animal) {
         try {
             for (Subtype at : animalsType) {
-                if (
-                     at.toString().equals(animal.getType())
-                        ||
-                     at.toString().equals(animal.getSubtype().toString())
-                   )
-                {
+                if (at.toString().equals(animal.getType())
+                        || at.toString().equals(animal.getSubtype().toString())) {
                     return true;
                 }
             }
         } catch (Exception e) {
-            //TODO: handle exception
+
         }
-        
+
         return false;
     }
-    
-    public boolean isAvailable(){
+
+    public boolean isAvailable() {
         return animalsList.size() < 10;
     }
-    
-    private boolean hasAnimalType(Subtype type){
+
+    private boolean hasAnimalType(Subtype type) {
         for (int i = 0; i < animalsType.length; i++) {
             if (animalsType[i] == type) {
                 return true;
@@ -103,26 +94,26 @@ public class Zookeeper extends Employee{
         }
         return false;
     }
-    
+
     public Subtype[] getAnimalsType() {
         return animalsType;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         String output;
-        String qualifications = "  Qualification: " ;
-        
-        output = "----Zookeeper----\n"; 
+        String qualifications = "  Qualification: ";
+
+        output = "--------------------Zookeeper--------------------\n";
         output += "  Name: " + this.name + "\n";
         output += "  ID: " + this.employeeID + "\n";
         output += "  Date of Birth : " + this.dob + "\n";
         output += "  Address: " + this.address + "\n";
         output += "  PPS Number: " + this.pps + "\n";
         for (Subtype subtype : animalsType) {
-            qualifications += subtype + " | " ;
+            qualifications += subtype + " | ";
         }
-        output += qualifications ;
+        output += qualifications;
         return output;
     }
-  }
+}

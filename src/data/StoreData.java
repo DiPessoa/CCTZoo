@@ -38,10 +38,6 @@ public class StoreData {
 
     public static String[] animalMedication = new String[]{""};
 
-//TODO: RESOLVER OFFSPRING
-
-    public static String[] animalDateDod = RandomDate.populateArray(2011, 2017);
-
     public static boolean[] animalVaccine = new boolean[]{true, false};
 
     public static String[] zookeeperName = new String[]{"Luana", "Diogo", "Luzilene",
@@ -52,31 +48,11 @@ public class StoreData {
         "Justine", "Judith", "Joseph", "Joe", "Patrick", "Mathew", "Angela",
         "Jessica", "Barbara", "Agnes", "Paolo", "Eva", "Leornad", "Fernando",
         "Laura", "Rafael", "Eliska", "Mio", "Afonso", "Pamela"};
-    
-    public static String[] zookeeperDob = RandomDate.populateArray(1970, 1995);
-    
-    public static String[] zookeeperAddress = {"123 Parnell St", "34 Dermont St", "78 Inns Quay", "32 Rock Road"};
-    
-    public static String[] zookeeperPps = {"123456CA", "356244BV", "234567RE", "098567FR", "643542GG", "643552HG"};
-    
-    
-    
-    
-    
-    
-    
 
-    //Popula os vertores de data - passar esse metodo para RandomDate
-//    public static String[] populateArray(int yearMin, int yearMax) {
-//
-//        String[] dates = new String[100];
-//
-//        for (int i = 0; i < dates.length; i++) {
-//            String randomDate = RandomDate.getRandomDate(yearMin, yearMax);
-//            dates[i] = randomDate;
-//        }
-//
-//        return dates;
-//    }
+    public static String[] zookeeperDob = RandomDate.populateArray(1970, 1995);
+
+    public static String[] zookeeperAddress = {"123 Parnell St", "34 Dermont St", "78 Inns Quay", "32 Rock Road"};
+
+    public static String[] zookeeperPps = {"123456CA", "356244BV", "234567RE", "098567FR", "643542GG", "643552HG"};
 
 }

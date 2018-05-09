@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
 
 import animal.Animal;
@@ -20,12 +15,12 @@ import java.util.Random;
  * @author Diogo Pessoa
  */
 public class SetupData {
-    
-    private static ArrayList<Animal> animalList             = new ArrayList();
-    private static ArrayList<Zookeeper> zookeepersList      = new ArrayList();
 
-    private static Random randomNum                 = new Random();
-    
+    private static ArrayList<Animal> animalList = new ArrayList();
+    private static ArrayList<Zookeeper> zookeepersList = new ArrayList();
+
+    private static Random randomNum = new Random();
+
     public SetupData(int aCount, int zCount) {
         createAnimalList(aCount);
         createZookeeperList(zCount);
@@ -48,12 +43,12 @@ public class SetupData {
             zookeepersList.add(createZookeeper());
         }
     }
-    
-    public static void addAnimal(Animal animal){
+
+    public static void addAnimal(Animal animal) {
         animalList.add(animal);
     }
-    
-    public static void addZookeeper(Zookeeper zookeeper){
+
+    public static void addZookeeper(Zookeeper zookeeper) {
         zookeepersList.add(zookeeper);
     }
 
@@ -113,15 +108,13 @@ public class SetupData {
 
         for (Animal animal : animalList) {
             animal.setZookeeper(getValidZookeeper(animal));
-            /*System.out.println(animal.getName() + " || ID: " + animal.getExibitNumber()+  " || Type: " + animal.getType() + " || Subtype: " + animal.getSubtype());
-            System.out.println("\t"   + animal.getZookeeper().toString());
-            System.out.println("----------------------------------------------------------");*/
+
         }
-        /**/
+
     }
 
     public Zookeeper getValidZookeeper(Animal animal) {
-        //TODO: controlar em caso de nao encontrar nenhum cuidador valido
+
         int randomKeeperIndex = randomNum.nextInt(zookeepersList.size());
         boolean isCompatible = zookeepersList.get(randomKeeperIndex).isAnimalCompatible(animal);
         boolean isAvailable = zookeepersList.get(randomKeeperIndex).isAvailable();

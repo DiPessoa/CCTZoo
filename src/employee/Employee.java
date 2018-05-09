@@ -5,19 +5,19 @@ package employee;
  * @author Luana Andrade
  */
 abstract class Employee {
-    
+
     public String name;
     public String dob;
     public String address;
     public String pps;
     public final int employeeID;
     public static int lastemployeeID = 0;
-    
-    public Employee(){
+
+    public Employee() {
         employeeID = ++lastemployeeID;
     }
 
-    public Employee(String name, String dob, String address, String pps){
+    public Employee(String name, String dob, String address, String pps) {
         this.name = name;
         this.dob = dob;
         this.address = address;
@@ -61,5 +61,3 @@ abstract class Employee {
         return employeeID;
     }
 }
-
-

@@ -2,7 +2,6 @@ package animal;
 
 import animal.classification.Subtype;
 
-
 /**
  *
  * @author Diogo Pessoa
@@ -10,9 +9,9 @@ import animal.classification.Subtype;
 public class Insect extends Animal {
 
     private boolean layEgg;
-    
-    public Insect(){
-    
+
+    public Insect() {
+
     }
 
     public Insect(String name, char gender, String dob, String dateArrival, boolean offSpring, Subtype subType) {
@@ -32,8 +31,9 @@ public class Insect extends Animal {
     public void setLayEgg(boolean layEgg) {
         this.layEgg = layEgg;
     }
+
     @Override
-    public String getString (){
+    public String getString() {
         return "  Lay Egg: " + Boolean.toString(layEgg) + "\n";
     }
 
