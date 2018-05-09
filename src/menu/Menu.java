@@ -1,6 +1,7 @@
 package menu;
 
 import animal.Animal;
+import animal.Medication;
 import animal.classification.Subtype;
 import data.SetupData;
 import data.StoreData;
@@ -250,14 +251,45 @@ public class Menu {
         switch (mainSelection) {
             case 1:
                 System.out.println(SetupData.getAnimalList());
-                System.out.println("Inform the Animal ID  for more info or 9 to go the main menu ");
+                System.out.println("Inform the Animal ID that you wuld like to UPDATE");
                 int choice = in.nextInt();
                 System.out.println(SetupData.getAnimalList().get(choice-1));
+                System.out.println("--------------------------------------------------");
+                System.out.println("What would you like to update?");
+                System.out.println("1 - Offspring \n 2 - Medication \n 3 - Vaccine");
+                System.out.print("Selection: ");
+                int option = in.nextInt();
                 
+                switch(option){
+                    case 1:
+                        System.out.println("Does the animal have offspring? \n (Type in True or False)");
+                        Boolean upOffspring = in.nextBoolean();
+                        SetupData.getAnimalList().get(choice-1).setOffSpring(upOffspring);
+                        break;
+                    case 2:
+                        System.out.println("Inform the medication's name: )");
+                        String medicationDrug = in.next();
+                        System.out.println("Inform the medication's date: )");
+                        String medicationDate = in.next();
+                        System.out.println("Inform some comments: )");
+                        String medicationComments = in.next();
+                        
+                        Medication nm = new Medication(medicationDate, medicationDrug, medicationComments);
+                        
+                        SetupData.getAnimalList().get(choice-1).addMedication(nm);
+                        System.out.println("");
+                        break;
+                    case 3:
+                        System.out.println("Did the animal take vaccine? \n (Type in True or False)");
+                        Boolean upVaccine = in.nextBoolean();
+                        SetupData.getAnimalList().get(choice-1).setVaccine(upVaccine);
+                        break;
+                }
                 
+                System.out.println("--------------------------------------------------");
+                System.out.println("The data have been updated");
+                System.out.println(SetupData.getAnimalList().get(choice-1));
                 break;
-                
-               
             case 2:
                 
                      

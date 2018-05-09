@@ -11,7 +11,6 @@ import animal.Avian;
 import animal.Insect;
 import animal.Mammal;
 import animal.Reptile;
-import animal.classification.Subtype;
 import employee.Zookeeper;
 import java.util.ArrayList;
 import java.util.Random;

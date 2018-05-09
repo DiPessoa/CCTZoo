@@ -7,6 +7,7 @@ import interfaces.IAvian;
 import interfaces.IMessage;
 import java.util.ArrayList;
 import employee.Zookeeper;
+import animal.Medication;
 
 /**
  *
@@ -26,7 +27,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     private boolean vaccine = false;
     
     //todo - excluir
-    private ArrayList<Medication> medication = new ArrayList<>();
+    private static ArrayList<Medication> drugs = new ArrayList<>();
     public  boolean offSpring = false;
     private Zookeeper zookeeper;
 
@@ -102,8 +103,8 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         this.vaccine = vaccine;
     }
 
-    public void setMedication(ArrayList<Medication> medication) {
-        this.medication = medication;
+    public static void addMedication(Medication medication) {
+        drugs.add(medication);
     }
     
     public void setZookeeper(Zookeeper zookeeper){
@@ -146,7 +147,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         this.subtype = subType;
     }
     
-  //ciar metodo que conte quanto animais estao no arraylist
+  //TODO ciar metodo que conte quanto animais estao no arraylist
    
     
     @Override
@@ -204,7 +205,7 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         output += "  Exibit Number: " + this.exibitNumber + "\n";
         output += "  Date of Birth: " + this.dob + " | Gender: " + this.gender + "\n";
         output += "  Date of Arrival: " + this.dateArrival + "\n";
-        output += "  Vaccine: " + this.vaccine + " | Medication:" + this.medication + "\n";
+        output += "  Vaccine: " + this.vaccine + " | Medication:" + this.drugs + "\n";
         output += "  Offspring: " + this.offSpring + "\n";
         output +=  this.zookeeper + "\n";
         output += this.getString();
