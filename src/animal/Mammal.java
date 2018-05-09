@@ -2,7 +2,6 @@ package animal;
 
 import animal.classification.Subtype;
 
-
 /**
  *
  * @author Diogo Pessoa
@@ -10,9 +9,9 @@ import animal.classification.Subtype;
 public class Mammal extends Animal {
 
     private boolean pregnancy;
-    
-    public Mammal(){
-    
+
+    public Mammal() {
+
     }
 
     public Mammal(String name, char gender, String dob, String dateArrival, boolean offSpring, Subtype subType) {
@@ -21,7 +20,7 @@ public class Mammal extends Animal {
 
     }
 
-    public Mammal(String name, char gender, String dob, String dateArrival,boolean offSpring) {
+    public Mammal(String name, char gender, String dob, String dateArrival, boolean offSpring) {
         super(name, gender, dob, dateArrival, offSpring);
         setPregnancy(gender == 'f');
 
@@ -35,18 +34,17 @@ public class Mammal extends Animal {
         if (getGender() == 'F') {
             this.pregnancy = true;
         } else {
-            displayMessage("A male animmal can not be pregnant!");
+            System.out.println("A male animmal can not be pregnant!");
         }
     }
-    
+
     @Override
-    public String getString (){
+    public String getString() {
         return "  Pregnancy: " + Boolean.toString(pregnancy) + "\n";
     }
-    
-    
+
     @Override
-    public String getType(){
+    public String getType() {
         String type = getClass().getName().substring(getClass().getName().indexOf(".") + 1, getClass().getName().length());
         return type.toUpperCase();
     }

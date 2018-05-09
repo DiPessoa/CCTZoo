@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package animal;
 
 /**
  *
  * @author Diogo Pessoa
+ * @author Luana Andrade
  */
 public class Medication {
 
@@ -32,11 +28,12 @@ public class Medication {
     public String getMedicationComments() {
         return medicationComments;
     }
- @Override
-    public String toString(){
+
+    @Override
+    public String toString() {
         String output;
         output = "   \t \t Name: " + this.medicationDrug + "\n";
-        output += "  \t \t Date of Birth: " + this.medicationDate +  "\n";
+        output += "  \t \t Date of Birth: " + this.medicationDate + "\n";
         output += "  \t \t Date of Arrival: " + this.medicationComments + "\n";
         return output;
     }
