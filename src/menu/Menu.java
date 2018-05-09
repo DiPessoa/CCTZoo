@@ -29,13 +29,9 @@ public class Menu {
     }
     
     public void display_animal_type() {
-<<<<<<< HEAD
-        System.out.println("Choose the Type:");
-        System.out.println("1) Aquatic 1\n2) Avian 2\n3) Insect 3\n4) Mammal 4\n5) Reptile 5");
-=======
+
         System.out.println("Choose the Type");
         System.out.println("1) Aquatic 1\n2) Avian 2\n3) Insect 3\n4) Mammal 4\n5) Reptile 5\n6) All Animals 6");
->>>>>>> menu
         System.out.print("Selection: ");
     }
 
@@ -64,7 +60,6 @@ public class Menu {
             case 0:
                 System.out.println("Thank you and godbye.");
                 break;
-
             case 9:
                 System.out.println("Please proceed.");
                 new Menu();
@@ -93,6 +88,7 @@ public class Menu {
                 System.err.println("Unrecognized option");
                 break;
         }
+       
         question();
     }
 
@@ -110,18 +106,6 @@ public class Menu {
         
         operation();
         
-        switch (mainSelection) {
-            case 1:
-                //TODO paramos aqui
-                break;
-
-            case 2:
-                break;
-
-            default:
-                System.err.println("Unrecognized option");
-                break;
-        }
     }
 
     public void list() {
