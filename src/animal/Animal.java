@@ -24,6 +24,8 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     private Subtype subtype;
    
     private boolean vaccine = false;
+    
+    //todo - excluir
     private ArrayList<Medication> medication = new ArrayList<>();
     public  boolean offSpring = false;
     private Zookeeper zookeeper;

@@ -22,22 +22,20 @@ import java.util.Random;
  */
 public class SetupData {
 
-    private static ArrayList<Animal> animalList             = new ArrayList();
-    public ArrayList<Zookeeper> zookeepersList      = new ArrayList();
-    
-    private static Random randomNum                 = new Random();
-    
+    private static ArrayList<Animal> animalList = new ArrayList();
+    public ArrayList<Zookeeper> zookeepersList = new ArrayList();
+
+    private static Random randomNum = new Random();
+
     public SetupData(int aCount, int zCount) {
         createAnimalList(aCount);
         createZookeeperList(zCount);
-        
+
         populateAnimal();
         populateZookeeper();
-        
+
         setAnimalZookeeper();
     }
-    
-    
 
     private void createAnimalList(int count) {
         for (int i = 0; i < count; i++) {
@@ -51,24 +49,28 @@ public class SetupData {
             zookeepersList.add(createZookeeper());
         }
     }
+    
+    public static void addAnimal(Animal animal){
+        animalList.add(animal);
+    }
 
-    private Animal createAnimal(int number) {
+    public static Animal createAnimal(int number) {
         Animal an;
         switch (number) {
             case 1:
-                an = new Mammal();
-                break;
-            case 2:
                 an = new Aquatic();
                 break;
-            case 3:
-                an = new Reptile();
+            case 2:
+                an = new Avian();
                 break;
-            case 4:
+            case 3:
                 an = new Insect();
                 break;
+            case 4:
+                an = new Mammal();
+                break;
             case 5:
-                an = new Avian();
+                an = new Reptile();
                 break;
             default:
                 an = null;
@@ -102,10 +104,10 @@ public class SetupData {
             }
         }
     }
-    
+
     private void setAnimalZookeeper() {
         Mammal mm = new Mammal();
-        
+
         for (Animal animal : animalList) {
             animal.setZookeeper(getValidZookeeper(animal));
             /*System.out.println(animal.getName() + " || ID: " + animal.getExibitNumber()+  " || Type: " + animal.getType() + " || Subtype: " + animal.getSubtype());
@@ -114,21 +116,21 @@ public class SetupData {
         }
         /**/
     }
-    
-    public Zookeeper getValidZookeeper(Animal animal){
+
+    public Zookeeper getValidZookeeper(Animal animal) {
         //TODO: controlar em caso de nao encontrar nenhum cuidador valido
         int randomKeeperIndex = randomNum.nextInt(zookeepersList.size());
         boolean isCompatible = zookeepersList.get(randomKeeperIndex).isAnimalCompatible(animal);
         boolean isAvailable = zookeepersList.get(randomKeeperIndex).isAvailable();
         Zookeeper zk = zookeepersList.get(randomKeeperIndex);
-        
-        if(isCompatible && isAvailable){
+
+        if (isCompatible && isAvailable) {
             return zk;
-        }else{
+        } else {
             return getValidZookeeper(animal);
         }
     }
-    
+
     public static ArrayList<Animal> getAnimalList() {
         return animalList;
     }
@@ -136,5 +138,5 @@ public class SetupData {
     public ArrayList<Zookeeper> getZookeepersList() {
         return zookeepersList;
     }
-    
+
 }

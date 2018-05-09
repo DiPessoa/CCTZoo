@@ -1,6 +1,8 @@
 package menu;
 
 import animal.Animal;
+import animal.classification.Subtype;
+import data.SetupData;
 import java.util.*;
 
 public class Menu {
@@ -20,7 +22,7 @@ public class Menu {
     public void display_menu_main_options() {
         System.out.println("Choose the operation");
         System.out.println("1)Search 1\n2) Add 2\n3) Remove 3");
-        System.out.print("Selection: ");;
+        System.out.print("Selection: ");
         operations();
     }
 
@@ -187,9 +189,61 @@ public class Menu {
     public void add() {
         switch (mainSelection) {
             case 1:
-                //TODO: add animals
-                System.out.println("Add animals");
+                
+                System.out.println("Inform the animal's name: ");
+                String name = in.next();
+                
+                System.out.println("Inform the animal's gender: \n(M - Masculine or F - Feminine)");
+                char gender  = (char)in.next().charAt(0);
+                                
+                System.out.println("Inform the animal's date of birth: ");
+                String dob = in.next();
+                
+                System.out.println("Inform the animal's date of arrival: \n(Type in Null if the animal born in the zoo)");
+                String dateArrival = in.next();
+                
+                System.out.println("Inform if the animal has Offspring: \n(Type in True or False)");
+                Boolean offSpring = in.nextBoolean();
+                
+                System.out.println("Inform the subtype: \n(Subtypes - 1 - Aquatic, 2 - Avian, 3 - Insect, 4 - Mammal, 5 - Reptile)");
+                int subtype = in.nextInt();
+                
+                System.out.println("Inform if the animal was vaccinated: \n(Type in True or False)");
+                Boolean vaccine = in.nextBoolean();
+                
+                Animal na = SetupData.createAnimal(animalType);
+                
+                na.setName(name);
+                na.setGender(gender);
+                na.setDob(dob);
+                na.setDateArrival(dateArrival);
+                na.setOffSpring(offSpring);
+                na.setVaccine(vaccine);
+                
+                Subtype st = Subtype.NULL;
+                
+                switch(subtype){
+                    case 1:
+                        st = Subtype.AQUATIC;
+                        break;
+                    case 2:
+                        st = Subtype.AVIAN;
+                        break;
+                    case 3:
+                        st = Subtype.INSECT;
+                        break;
+                    case 4:
+                        st = Subtype.MAMMAL;
+                        break;
+                    case 5:
+                        st = Subtype.REPTILE;
+                        break;
+                }
+                
+                na.setSubtype(st);
+                SetupData.addAnimal(na);
                 break;
+                
             case 2:
                 //TODO: add Keepers
                 System.out.println("Add Keepers");

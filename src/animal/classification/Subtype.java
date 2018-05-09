@@ -8,7 +8,7 @@ package animal.classification;
  */
 public enum Subtype {
     
-    MAMMAL, REPTILE, AVIAN, AQUATIC, INSECT;
+    MAMMAL, REPTILE, AVIAN, AQUATIC, INSECT, NULL;
     
     public String toString() {
         return name();
