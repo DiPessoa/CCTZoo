@@ -205,7 +205,8 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
         output += "  Exibit Number: " + this.exibitNumber + "\n";
         output += "  Date of Birth: " + this.dob + " | Gender: " + this.gender + "\n";
         output += "  Date of Arrival: " + this.dateArrival + "\n";
-        output += "  Vaccine: " + this.vaccine + " | Medication:" + this.drugs + "\n";
+        output += "  Vaccine: " + this.vaccine +  "\n";
+        output += "  Medication:" + drugs.toString() + "\n";
         output += "  Offspring: " + this.offSpring + "\n";
         output +=  this.zookeeper + "\n";
         output += this.getString();

@@ -14,6 +14,7 @@ import utilities.RandomDate;
 import data.StoreData;
 import java.util.ArrayList;
 import menu.Menu;
+import animal.Medication;
 
 /**
  *
@@ -78,7 +79,11 @@ public class CCTZoo {
          /**/
         
         SetupData sd = new SetupData(100, 40);
-        Menu mn = new Menu();
+       Menu mn = new Menu();
+       
+      // Medication mn = new Medication ("0.02", "hku","fohalfshioialsk");
+       
+        //System.out.println(mn.toString());
         
         //Animal.list("MAMMAL");
          

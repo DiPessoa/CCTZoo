@@ -32,5 +32,12 @@ public class Medication {
     public String getMedicationComments() {
         return medicationComments;
     }
-
+ @Override
+    public String toString(){
+        String output;
+        output = "   \t \t Name: " + this.medicationDrug + "\n";
+        output += "  \t \t Date of Birth: " + this.medicationDate +  "\n";
+        output += "  \t \t Date of Arrival: " + this.medicationComments + "\n";
+        return output;
+    }
 }
