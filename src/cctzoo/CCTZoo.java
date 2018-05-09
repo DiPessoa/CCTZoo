@@ -76,10 +76,11 @@ public class CCTZoo {
          Zookeeper zk = new Zookeeper("Luana", "jhg", "uoi", "uyguhb");
          System.out.println(zk.toString());
          /**/
-         
-        //Menu mn = new Menu();
+        
         SetupData sd = new SetupData(100, 40);
-        Animal.list("AQUATIC");
+        Menu mn = new Menu();
+        
+        //Animal.list("MAMMAL");
          
         
 

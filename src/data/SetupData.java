@@ -108,10 +108,9 @@ public class SetupData {
         
         for (Animal animal : animalList) {
             animal.setZookeeper(getValidZookeeper(animal));
-            System.out.println(animal.getName() + " || ID: " + animal.getExibitNumber()+  " || Type: " + animal.getType() + " || Subtype: " + animal.getSubtype());
+            /*System.out.println(animal.getName() + " || ID: " + animal.getExibitNumber()+  " || Type: " + animal.getType() + " || Subtype: " + animal.getSubtype());
             System.out.println("\t"   + animal.getZookeeper().toString());
-            System.out.println("\t\t" + animal.getZookeeper().getAnimalsType()[0] + " || " + animal.getZookeeper().getAnimalsType()[1] + " || " + animal.getZookeeper().getAnimalsType()[2]);
-            System.out.println("----------------------------------------------------------");
+            System.out.println("----------------------------------------------------------");*/
         }
         /**/
     }

@@ -1,5 +1,6 @@
 package menu;
 
+import animal.Animal;
 import java.util.*;
 
 public class Menu {
@@ -18,7 +19,7 @@ public class Menu {
 
     public void display_menu_main_options() {
         System.out.println("Choose the operation");
-        System.out.println("1) List 1\n2) Add 2\n3) Remove 3");
+        System.out.println("1) Search 1\n2) Add 2\n3) Remove 3");
         System.out.print("Selection: ");;
         operations();
     }
@@ -118,6 +119,25 @@ public class Menu {
             case 1:
                 //TODO: List animals
                 System.out.println("List animals: " + animalType);
+                String type = "";
+                switch(animalType){
+                    case 1:
+                        type = "AQUATIC";
+                        break;
+                    case 2:
+                        type = "AVIAN";
+                        break;
+                    case 3:
+                        type = "INSECT";
+                        break;
+                    case 4:
+                        type = "MAMMAL";
+                        break;
+                    case 5:
+                        type = "REPTILE";
+                        break;    
+                }
+                Animal.list(type);
                 break;
             case 2:
                 //TODO: List Keepers

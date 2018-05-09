@@ -173,13 +173,16 @@ public abstract class Animal implements IAvian, IAquatic, IMessage {
     
     public static ArrayList<Animal> list (String type){
         
+        System.out.println(SetupData.getAnimalList().size());
+        
         ArrayList<Animal> list = new ArrayList<>();
         
         for (Animal currentAnimal : SetupData.getAnimalList()) {
             if(currentAnimal.getType().equals(type)){
                 list.add(currentAnimal);
                 System.out.print("ID: " + currentAnimal.getExibitNumber());
-                System.out.println(" Name: " + currentAnimal.getName());
+                System.out.print(" Name: " + currentAnimal.getName());
+                System.out.println(" type: " + currentAnimal.getType());
             }
         }
         
