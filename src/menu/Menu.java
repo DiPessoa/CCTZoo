@@ -16,19 +16,20 @@ public class Menu {
     private int animalType = 0;
 
     public void display_menu() {
-        System.out.println("Choose what you would like to manage");
+        System.out.println("----------------Welcome to ZooCCT-------------");
+        System.out.println("Choose what you would like to manage:");
         System.out.println("1) Animals 1\n2) ZooKeepers 2");
-        System.out.print("Selection: ");
+        System.out.println("Selection: ");
     }
 
     public void display_operations() {
-        System.out.println("Choose the operation");
-        System.out.println("1)Search 1\n2) Add 2\n3) Update 3");
+        System.out.println("Choose the operation:");
+        System.out.println("1) Search 1\n2) Add 2\n3) Update 3");
         System.out.print("Selection: ");
     }
     
     public void display_animal_type() {
-        System.out.println("Choose the Type");
+        System.out.println("Choose the Type:");
         System.out.println("1) Aquatic 1\n2) Avian 2\n3) Insect 3\n4) Mammal 4\n5) Reptile 5");
         System.out.print("Selection: ");
     }
@@ -51,7 +52,7 @@ public class Menu {
     public void question() {
         System.out.println("Would you like to proceed or quit?");
         System.out.println("To proceed enter 9.");
-        System.out.println("If you wish to quit enter 0.");
+        System.out.println("If you wish to QUIT enter 0.");
         q = new Scanner(System.in);
 
         switch (q.nextInt()) {
@@ -90,10 +91,6 @@ public class Menu {
         question();
     }
 
-    public void animal_type() {
-        
-        
-    }
 
     public Menu() {
         in = new Scanner(System.in);
@@ -125,7 +122,6 @@ public class Menu {
     public void list() {
         switch (mainSelection) {
             case 1:
-                //TODO: List animals
                 System.out.println("List animals: " + animalType);
                 String type = "";
                 switch (animalType) {
@@ -146,13 +142,14 @@ public class Menu {
                         break;
                 }
                 Animal.list(type);
-                System.out.println("Inform the Animal ID  for more info or 9 to go the main menu ");
+                System.out.println("Inform the Animal ID for more info or 9 to go the main menu ");
                 int choice = in.nextInt();
                 System.out.println(SetupData.getAnimalList().get(choice-1));
                 break;
             case 2:
                 for (Zookeeper object : SetupData.getZookeepersList()) {
                     System.out.println(object);
+                    System.out.println("----------------------------");
                 }
                 
                 System.out.println("Inform the Zookeeper ID  for more info or 9 to go the main menu ");
