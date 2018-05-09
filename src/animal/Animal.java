@@ -25,7 +25,6 @@ public abstract class Animal implements IAvian, IAquatic {
 
     private boolean vaccine = false;
 
-    //todo - excluir
     private static ArrayList<Medication> drugs = new ArrayList<>();
     public boolean offSpring = false;
     private Zookeeper zookeeper;
@@ -190,9 +189,10 @@ public abstract class Animal implements IAvian, IAquatic {
     public String toString() {
         String output;
         String subtype = getSubtype() == null ? "Undefined" : this.getSubtype().toString();
-        
-        output = "--- Name: " + this.name + " | Type: " + this.getType() + " | Subtype: " + subtype + " ----\n";
-        output += "  Exibit Number: " + this.exibitNumber + "\n";
+
+        output = "---------------------------------------------------" + "\n";
+        output += "--- Name: " + this.name + " | Type: " + this.getType() + " | Subtype: " + subtype + " ----\n";
+        output += "  ID: " + this.exibitNumber + "\n";
         output += "  Date of Birth: " + this.dob + " | Gender: " + this.gender + "\n";
         output += "  Date of Arrival: " + this.dateArrival + "\n";
         output += "  Vaccine: " + this.vaccine + "\n";
@@ -200,8 +200,8 @@ public abstract class Animal implements IAvian, IAquatic {
         output += "  Offspring: " + this.offSpring + "\n";
         output += this.getString();
         output += this.zookeeper + "\n";
-        output += "---------------------------------------------------" + "\n";
         
+
         return output;
     }
 
