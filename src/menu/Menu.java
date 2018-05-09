@@ -17,22 +17,22 @@ public class Menu {
     private int animalType = 0;
 
     public void display_menu() {
-        System.out.println("----------------Welcome to ZooCCT-------------");
+        System.out.println("-----------------Welcome to ZooCCT-----------------");
         System.out.println("Choose what you would like to manage:");
-        System.out.println("1) Animals 1\n2) ZooKeepers 2");
-        System.out.println("Selection: ");
+        System.out.println("Animals [1] \n ZooKeepers [2]");
+        System.out.print("Selection: ");
     }
 
     public void display_operations() {
         System.out.println("Choose the operation:");
-        System.out.println("1) Search 1\n2) Add 2\n3) Update 3");
+        System.out.println("Search [1]\n Add [2]\n Update [3]");
         System.out.print("Selection: ");
     }
-    
+
     public void display_animal_type() {
 
         System.out.println("Choose the Type");
-        System.out.println("1) Aquatic 1\n2) Avian 2\n3) Insect 3\n4) Mammal 4\n5) Reptile 5\n6) All Animals 6");
+        System.out.println("Aquatic [1]\n Avian [2]\n Insect [3]\n Mammal [4]\n Reptile [5]\n All Animals [6]");
         System.out.print("Selection: ");
     }
 
@@ -50,7 +50,7 @@ public class Menu {
                 return;
         }
     }
-    
+
     public void question() {
         System.out.println("Would you like to proceed or quit?");
         System.out.println("To proceed enter 9.");
@@ -70,7 +70,7 @@ public class Menu {
                 break;
         }
     }
-    
+
     public void run() {
 
         switch (operation) {
@@ -81,7 +81,6 @@ public class Menu {
                 add();
                 break;
             case 3:
-                //TODO: update
                 update();
                 break;
 
@@ -89,24 +88,23 @@ public class Menu {
                 System.err.println("Unrecognized option");
                 break;
         }
-       
+
         question();
     }
 
-
     public Menu() {
         in = new Scanner(System.in);
-        
+
         display_menu();
-        
+
         mainSelection = in.nextInt();
-        
+
         display_operations();
-        
+
         operation = in.nextInt();
-        
+
         operation();
-        
+
     }
 
     public void list() {
@@ -132,23 +130,23 @@ public class Menu {
                         break;
                     case 6:
                         System.out.println(SetupData.getAnimalList());
-                           
+
                 }
                 Animal.list(type);
 
                 System.out.println("Inform the Animal ID ");
 
                 int choice = in.nextInt();
-                System.out.println(SetupData.getAnimalList().get(choice-1));
+                System.out.println(SetupData.getAnimalList().get(choice - 1));
                 break;
             case 2:
                 for (Zookeeper object : SetupData.getZookeepersList()) {
                     System.out.println(object);
                     System.out.println("----------------------------");
                 }
-                
+
                 System.out.println("Inform the Zookeeper ID ");
-                
+
                 int zoochoice = in.nextInt();
                 System.out.println(SetupData.getZookeepersList().get(zoochoice - 1));
 
@@ -240,7 +238,7 @@ public class Menu {
                 }
 
                 SetupData.addZookeeper(zk);
-                
+
                 break;
 
             default:
@@ -257,18 +255,18 @@ public class Menu {
                 System.out.println("Inform the Animal ID that you would like to UPDATE");
 
                 int choice = in.nextInt();
-                System.out.println(SetupData.getAnimalList().get(choice-1));
+                System.out.println(SetupData.getAnimalList().get(choice - 1));
                 System.out.println("--------------------------------------------------");
                 System.out.println("What would you like to update?");
                 System.out.println("1 - Offspring \n 2 - Medication \n 3 - Vaccine");
                 System.out.print("Selection: ");
                 int option = in.nextInt();
-                
-                switch(option){
+
+                switch (option) {
                     case 1:
                         System.out.println("Does the animal have offspring? \n (Type in True or False)");
                         Boolean upOffspring = in.nextBoolean();
-                        SetupData.getAnimalList().get(choice-1).setOffSpring(upOffspring);
+                        SetupData.getAnimalList().get(choice - 1).setOffSpring(upOffspring);
                         break;
                     case 2:
                         System.out.println("Inform the medication's name: )");
@@ -277,32 +275,53 @@ public class Menu {
                         String medicationDate = in.next();
                         System.out.println("Inform some comments: )");
                         String medicationComments = in.next();
-                        
+
                         Medication nm = new Medication(medicationDate, medicationDrug, medicationComments);
-                        
-                        SetupData.getAnimalList().get(choice-1).addMedication(nm);
+
+                        SetupData.getAnimalList().get(choice - 1).addMedication(nm);
                         System.out.println("");
                         break;
                     case 3:
                         System.out.println("Did the animal take vaccine? \n (Type in True or False)");
                         Boolean upVaccine = in.nextBoolean();
-                        SetupData.getAnimalList().get(choice-1).setVaccine(upVaccine);
+                        SetupData.getAnimalList().get(choice - 1).setVaccine(upVaccine);
                         break;
                 }
-                
+
                 System.out.println("--------------------------------------------------");
                 System.out.println("The data have been updated");
-                System.out.println(SetupData.getAnimalList().get(choice-1));
+                System.out.println(SetupData.getAnimalList().get(choice - 1));
                 break;
             case 2:
-                 System.out.println(SetupData.getZookeepersList());
-                 System.out.println("Inform the Zookeeper ID that you would like to UPDATE ");
-                 int zoochoice = in.nextInt();
-                 System.out.println(SetupData.getZookeepersList().get(zoochoice - 1));
-                 
-                
-                     
-               
+                System.out.println(SetupData.getZookeepersList());
+                System.out.println("Inform the Zookeeper ID that you would like to UPDATE ");
+                int zooChoice = in.nextInt();
+                System.out.println(SetupData.getZookeepersList().get(zooChoice - 1));
+                System.out.println("What would you like to update?");
+                System.out.println("1 - Address \n 2 - PPS Number");
+                System.out.print("Selection: ");
+
+                int zooOption = in.nextInt();
+
+                switch (zooOption) {
+                    case 1:
+                        System.out.println("Inform the new address: )");
+                        String zooAddress = in.next();
+                        SetupData.getZookeepersList().get(zooChoice - 1).setAddress(zooAddress);
+                        System.out.println(SetupData.getZookeepersList().get(zooChoice - 1));
+                        break;
+                    case 2:
+                        System.out.println("Inform the new pps: )");
+                        String zooPps = in.next();
+                        SetupData.getZookeepersList().get(zooChoice - 1).setPps(zooPps);
+                        System.out.println(SetupData.getZookeepersList().get(zooChoice - 1));
+                        break;
+                    default:
+                        System.err.println("Unrecognized option");
+                        
+                        return;
+
+                }
                 break;
 
             default:
