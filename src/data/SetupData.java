@@ -21,12 +21,12 @@ import java.util.Random;
  * @author Diogo Pessoa
  */
 public class SetupData {
+    
+    private static ArrayList<Animal> animalList             = new ArrayList();
+    private static ArrayList<Zookeeper> zookeepersList      = new ArrayList();
 
-    private static ArrayList<Animal> animalList = new ArrayList();
-    public ArrayList<Zookeeper> zookeepersList = new ArrayList();
-
-    private static Random randomNum = new Random();
-
+    private static Random randomNum                 = new Random();
+    
     public SetupData(int aCount, int zCount) {
         createAnimalList(aCount);
         createZookeeperList(zCount);
@@ -135,7 +135,7 @@ public class SetupData {
         return animalList;
     }
 
-    public ArrayList<Zookeeper> getZookeepersList() {
+    public static ArrayList<Zookeeper> getZookeepersList() {
         return zookeepersList;
     }
 

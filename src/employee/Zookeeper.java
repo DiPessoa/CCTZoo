@@ -111,18 +111,18 @@ public class Zookeeper extends Employee{
     @Override
     public String toString(){
         String output;
-        String qualifications = "  Qualification: ";
+        String qualifications = "  Qualification:" ;
         
-        output = "--- Zookeeper----\n"; 
+        output = "----Zookeeper----\n"; 
         output += "  Name: " + this.name + "\n";
         output += "  ID: " + this.employeeID + "\n";
         output += "  Date of Birth : " + this.dob + "\n";
         output += "  Address: " + this.address + "\n";
         output += "  PPS Number: " + this.pps + "\n";
         for (Subtype subtype : animalsType) {
-            qualifications += subtype + " | ";
+            qualifications += subtype + " | " ;
         }
-        output += qualifications;
+        output += qualifications ;
         return output;
     }
   }
