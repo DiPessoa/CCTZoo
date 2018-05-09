@@ -80,7 +80,7 @@ public class Menu {
                 break;
             case 3:
                 //TODO: update
-                remove();
+                update();
                 break;
 
             default:
@@ -260,15 +260,22 @@ public class Menu {
 
     }
 
-    public void remove() {
+    public void update() {
         switch (mainSelection) {
             case 1:
-                //TODO remove animals
-                System.out.println("Remove Animals");
+                System.out.println(SetupData.getAnimalList());
+                System.out.println("Inform the Animal ID  for more info or 9 to go the main menu ");
+                int choice = in.nextInt();
+                System.out.println(SetupData.getAnimalList().get(choice-1));
+                
+                
                 break;
+                
+               
             case 2:
-                //TODO: Remove Keepers
-                System.out.println("Remove Keepers");
+                
+                     
+                System.out.println("Update Keepers");
                 break;
 
             default:
