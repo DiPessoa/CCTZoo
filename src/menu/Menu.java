@@ -1,6 +1,7 @@
 package menu;
 
 import animal.Animal;
+import data.SetupData;
 import java.util.*;
 
 public class Menu {
@@ -10,6 +11,7 @@ public class Menu {
     private int mainSelection = 0;
     private int operation = 0;
     private int animalType = 0;
+   
 
     public void display_menu() {
         System.out.println("Choose what you would like to manage");
@@ -20,7 +22,7 @@ public class Menu {
     public void display_menu_main_options() {
         System.out.println("Choose the operation");
         System.out.println("1)Search 1\n2) Add 2\n3) Remove 3");
-        System.out.print("Selection: ");;
+        System.out.print("Selection: ");
         operations();
     }
 
@@ -35,6 +37,7 @@ public class Menu {
                 // TODO keeper
                 //TODO operation search add or update
                 run_keeper_operation();
+               
                 break;
             default:
                 return;
@@ -45,7 +48,13 @@ public class Menu {
         switch(operation){
             case 1:
                 //TODO list keepers
-                System.out.println("TODO list keepers");
+                System.out.println( SetupData.getZookeepersList());
+                System.out.println("Inform the Zookeeper ID  for more info or 9 to go the main menu ");
+                int zoochoice = in.nextInt();
+               System.out.println(SetupData.getZookeepersList().get(zoochoice-1));
+                
+                
+                
                 break;
             case 2:
                 //TODO add keepers
@@ -123,6 +132,8 @@ public class Menu {
         animalType = choice;
         runOperation();
     }
+    
+  
 
     public Menu() {
         in = new Scanner(System.in);
@@ -173,11 +184,16 @@ public class Menu {
                         break;    
                 }
                 Animal.list(type);
+                System.out.println("Inform the Animal ID  for more info or 9 to go the main menu ");
+                int choice = in.nextInt();
+                System.out.println(SetupData.getAnimalList().get(choice));
                 break;
             case 2:
                 //TODO: List Keepers
-                System.out.println("List Keepers");
-                break;
+            
+               System.out.println("Inform the Zookeeper ID  for more info or 9 to go the main menu ");
+               
+               break;
 
             default:
                 break;
