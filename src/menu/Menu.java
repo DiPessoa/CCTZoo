@@ -19,16 +19,51 @@ public class Menu {
 
     public void display_menu_main_options() {
         System.out.println("Choose the operation");
-        System.out.println("1) Search 1\n2) Add 2\n3) Remove 3");
+        System.out.println("1)Search 1\n2) Add 2\n3) Remove 3");
         System.out.print("Selection: ");;
         operations();
     }
 
-    public void display_menu_animal_type() {
+    public void display_menu_after_operations() {
+        switch (mainSelection){
+            case 1:
+                //TODO animals
+                display_animal_type();
+                animal_type();
+                break;
+            case 2:
+                // TODO keeper
+                //TODO operation search add or update
+                run_keeper_operation();
+                break;
+            default:
+                return;
+        }
+    }
+    
+    public void run_keeper_operation(){
+        switch(operation){
+            case 1:
+                //TODO list keepers
+                System.out.println("TODO list keepers");
+                break;
+            case 2:
+                //TODO add keepers
+                System.out.println("TODO add keepers");
+                break;
+            case 3:
+                //TODO udpate keepers
+                System.out.println("TODO udpate keepers");
+                break;
+            default:
+                return;
+        }
+    }
+    
+    public void display_animal_type(){
         System.out.println("Choose the Type");
         System.out.println("1) Aquatic 1\n2) Avian 2\n3) Insect 3\n4) Mammal 4\n5) Reptile 5");
         System.out.print("Selection: ");
-        animal_type();
     }
 
     public void question() {
@@ -56,7 +91,7 @@ public class Menu {
         in = new Scanner(System.in);
         int choice = in.nextInt();
         operation = choice;
-        display_menu_animal_type();
+        display_menu_after_operations();
     }
 
     public void runOperation() {
