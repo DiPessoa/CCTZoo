@@ -2,8 +2,6 @@ package animal;
 
 import animal.classification.Subtype;
 import data.SetupData;
-import interfaces.IAquatic;
-import interfaces.IAvian;
 import java.util.ArrayList;
 import employee.Zookeeper;
 
@@ -14,7 +12,7 @@ import employee.Zookeeper;
  * @author Luana Andrade
  *
  */
-public abstract class Animal implements IAvian, IAquatic {
+public abstract class Animal{
 
     /**
      * Generates the animal's ID automatically
@@ -296,25 +294,25 @@ public abstract class Animal implements IAvian, IAquatic {
     }
 
     
-    /**
-     * Method returns and implements a interface form IAvian
-     *
-     * @return Boolean isAbletoFly
-     */
-    @Override
-    public boolean isAbleToFly() {
-        return getSubtype() == Subtype.AVIAN || this instanceof Avian;
-    }
-
-    /**
-     * Method returns and implements a interface from IAquatic
-     *
-     * @return Boolean isAbletoSwin
-     */
-    @Override
-    public boolean isAbleToSwin() {
-        return getSubtype() == Subtype.AQUATIC || this instanceof Aquatic;
-    }
+//    /**
+//     * Method returns and implements a interface form IAvian
+//     *
+//     * @return Boolean isAbletoFly
+//     */
+//    @Override
+//    public boolean isAbleToFly() {
+//        return getSubtype() == Subtype.AVIAN || this instanceof Avian;
+//    }
+//
+//    /**
+//     * Method returns and implements a interface from IAquatic
+//     *
+//     * @return Boolean isAbletoSwin
+//     */
+//    @Override
+//    public boolean isAbleToSwin() {
+//        return getSubtype() == Subtype.AQUATIC || this instanceof Aquatic;
+//    }
 
     /**
      * Method returns an Array List of just one kind of animal's type
