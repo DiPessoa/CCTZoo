@@ -157,7 +157,6 @@ public class Menu {
     public void add() {
         switch (mainSelection) {
 
-            //TODO - ADICIONAR ZOOKEEPER NO ANIMAL
             case 1:
                 System.out.println("---------------------------------------------------");
                 System.out.println("Inform the animal's name: ");
