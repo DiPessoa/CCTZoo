@@ -1,10 +1,7 @@
 package cctzoo;
 
-
 import data.SetupData;
 import menu.Menu;
-
-
 /**
  *
  * @author Diogo Pessoa

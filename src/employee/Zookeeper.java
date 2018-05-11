@@ -104,7 +104,7 @@ public class Zookeeper extends Employee {
         String output;
         String qualifications = "  Qualification: ";
 
-        output = "--------------------Zookeeper--------------------\n";
+        output = "----------------------Zookeeper--------------------\n";
         output += "  Name: " + this.name + "\n";
         output += "  ID: " + this.employeeID + "\n";
         output += "  Date of Birth : " + this.dob + "\n";

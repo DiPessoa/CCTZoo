@@ -32,9 +32,9 @@ public class Medication {
     @Override
     public String toString() {
         String output;
-        output = "   \t \t Name: " + this.medicationDrug + "\n";
-        output += "  \t \t Date of Birth: " + this.medicationDate + "\n";
-        output += "  \t \t Date of Arrival: " + this.medicationComments + "\n";
+        output = "\t Name: " + this.medicationDrug + "\n";
+        output += "\t Date of administration: " + this.medicationDate + "\n";
+        output += "\t Comments: " + this.medicationComments + "\n";
         return output;
     }
 }

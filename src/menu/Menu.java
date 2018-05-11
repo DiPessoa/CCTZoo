@@ -48,7 +48,7 @@ public class Menu {
                 run();
                 break;
             default:
-                System.err.println("Unrecognized option");
+                System.err.println("Unrecognized option.");
                 break;
         }
     }
@@ -69,7 +69,7 @@ public class Menu {
                 new Menu();
                 break;
             default:
-                System.err.println("Unrecognized option");
+                System.err.println("Unrecognized option.");
                 break;
         }
     }
@@ -88,7 +88,7 @@ public class Menu {
                 break;
 
             default:
-                System.err.println("Unrecognized option");
+                System.err.println("Unrecognized option.");
                 break;
         }
 
@@ -136,21 +136,20 @@ public class Menu {
 
                 Animal.list(type);
                 System.out.println("---------------------------------------------------");
-                System.out.println("Inform the Animal ID ");
+                System.out.println("Inform the Animal's ID ");
                 int choice = in.nextInt();
                 System.out.println(SetupData.getAnimalList().get(choice - 1));
                 break;
             case 2:
                 for (Zookeeper object : SetupData.getZookeepersList()) {
-                    System.out.println(object);
-                    System.out.println("---------------------------------------------------");
+                    System.out.println(object + "\n");
                 }
-                System.out.println("Inform the Zookeeper ID ");
+                System.out.println("Inform the Zookeeper's ID ");
                 int zoochoice = in.nextInt();
                 System.out.println(SetupData.getZookeepersList().get(zoochoice - 1));
                 break;
             default:
-                System.err.println("Unrecognized option");
+                System.err.println("Unrecognized option.");
                 break;
         }
     }
@@ -233,7 +232,7 @@ public class Menu {
                 System.out.println(SetupData.getZookeepersList().get(SetupData.getZookeepersList().indexOf(zk)));
                 break;
             default:
-                System.err.println("Unrecognized option");
+                System.err.println("Unrecognized option.");
                 break;
         }
 
@@ -243,19 +242,19 @@ public class Menu {
         switch (mainSelection) {
             case 1:
                 System.out.println(SetupData.getAnimalList());
-                System.out.println("Inform the Animal ID that you would like to UPDATE");
+                System.out.println("Inform the Animal's ID that you would like to UPDATE");
                 int choice = in.nextInt();
                 System.out.println(SetupData.getAnimalList().get(choice - 1));
                 System.out.println("--------------------------------------------------");
                 System.out.println("What would you like to update?");
-                System.out.println("1 - Offspring \n 2 - Medication \n 3 - Vaccine");
+                System.out.println(" Offspring [1] \n Medication [2] \n Vaccine [3]");
                 System.out.print("Selection: ");
                 int option = in.nextInt();
 
                 switch (option) {
                     case 1:
                         System.out.println("---------------------------------------------------");
-                        System.out.println("Does the animal have offspring? \n (Type in True or False)");
+                        System.out.println("Does the animal have offspring? \n (Type in TRUE or FALSE)");
                         Boolean upOffspring = in.nextBoolean();
                         SetupData.getAnimalList().get(choice - 1).setOffSpring(upOffspring);
                         break;
@@ -263,7 +262,7 @@ public class Menu {
                         System.out.println("---------------------------------------------------");
                         System.out.println("Inform the medication's name: ");
                         String medicationDrug = in.next();
-                        System.out.println("Inform the medication's date: ");
+                        System.out.println("Inform the administration date: ");
                         String medicationDate = in.next();
                         System.out.println("Inform some comments: ");
                         String medicationComments = in.next();
@@ -275,25 +274,27 @@ public class Menu {
                         break;
                     case 3:
                         System.out.println("---------------------------------------------------");
-                        System.out.println("Did the animal take vaccine? \n (Type in True or False)");
+                        System.out.println("Did the animal take vaccine? \n (Type in TRUE or FALSE)");
                         Boolean upVaccine = in.nextBoolean();
                         SetupData.getAnimalList().get(choice - 1).setVaccine(upVaccine);
                         break;
                 }
 
                 System.out.println("--------------------------------------------------");
-                System.out.println("The data have been updated");
+                System.out.println("The data have been updated successfully!");
                 System.out.println(SetupData.getAnimalList().get(choice - 1));
                 break;
             case 2:
-                System.out.println(SetupData.getZookeepersList());
+                for (Zookeeper object : SetupData.getZookeepersList()) {
+                    System.out.println(object + "\n");
+                }
                 System.out.println("---------------------------------------------------");
-                System.out.println("Inform the Zookeeper ID that you would like to UPDATE ");
+                System.out.println("Inform the Zookeeper's ID that you would like to UPDATE ");
                 int zooChoice = in.nextInt();
                 System.out.println(SetupData.getZookeepersList().get(zooChoice - 1));
                 System.out.println("---------------------------------------------------");
                 System.out.println("What would you like to update?");
-                System.out.println("1 - Address \n 2 - PPS Number");
+                System.out.println(" Address [1] \n PPS Number [2]");
                 System.out.print("Selection: ");
 
                 int zooOption = in.nextInt();
@@ -301,25 +302,26 @@ public class Menu {
                 switch (zooOption) {
                     case 1:
                         System.out.println("---------------------------------------------------");
-                        System.out.println("Inform the new address: )");
+                        System.out.println("Inform the new address: ");
                         String zooAddress = in.next();
                         SetupData.getZookeepersList().get(zooChoice - 1).setAddress(zooAddress);
-                        System.out.println(SetupData.getZookeepersList().get(zooChoice - 1));
                         break;
                     case 2:
                         System.out.println("---------------------------------------------------");
-                        System.out.println("Inform the new pps: )");
+                        System.out.println("Inform the new pps: ");
                         String zooPps = in.next();
                         SetupData.getZookeepersList().get(zooChoice - 1).setPps(zooPps);
-                        System.out.println(SetupData.getZookeepersList().get(zooChoice - 1));
                         break;
                     default:
-                        System.err.println("Unrecognized option");
+                        System.err.println("Unrecognized option.");
                         break;
                 }
+                System.out.println(SetupData.getZookeepersList().get(zooChoice - 1));
+                System.out.println("--------------------------------------------------");
+                System.out.println("The data have been updated successfully!");
                 break;
             default:
-                System.err.println("Unrecognized option");
+                System.err.println("Unrecognized option.");
                 break;
         }
     }

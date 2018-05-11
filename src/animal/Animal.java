@@ -52,7 +52,7 @@ public abstract class Animal implements IAvian, IAquatic {
         this.dateArrival = dateArrival;
         this.subtype = subType;
         this.offSpring = offSpring;
-        this.zookeeper = zookeeper;
+        //this.zookeeper = zookeeper;
     }
 
     public Animal(String name, char gender, String dob, String dateArrival, boolean offSpring, Zookeeper zookeeper) {
@@ -72,7 +72,7 @@ public abstract class Animal implements IAvian, IAquatic {
         this.dob = dob;
         this.dateArrival = dateArrival;
         this.offSpring = offSpring;
-        this.zookeeper = zookeeper;
+        //this.zookeeper = zookeeper;
     }
 
     public void setName(String name) {
@@ -181,22 +181,23 @@ public abstract class Animal implements IAvian, IAquatic {
         return list;
     }
 
-    public void remove() {
-
-    }
+//    public void remove() {
+//
+//    }
 
     @Override
     public String toString() {
         String output;
         String subtype = getSubtype() == null ? "Undefined" : this.getSubtype().toString();
 
-        output = "---------------------------------------------------" + "\n";
-        output += "--- Name: " + this.name + " | Type: " + this.getType() + " | Subtype: " + subtype + " ----\n";
+        output = "----------------------Animal----------------------\n";
+        output += "  NAME: " + this.name + "\n";
+        output += "  Type: " + this.getType() + " | Subtype: " + subtype + "\n";
         output += "  ID: " + this.exibitNumber + "\n";
         output += "  Date of Birth: " + this.dob + " | Gender: " + this.gender + "\n";
         output += "  Date of Arrival: " + this.dateArrival + "\n";
         output += "  Vaccine: " + this.vaccine + "\n";
-        output += "  Medication:" + drugs.toString() + "\n";
+        output += "  Medication: \n" + drugs.toString() + "\n";
         output += "  Offspring: " + this.offSpring + "\n";
         output += this.getString();
         output += this.zookeeper + "\n";
