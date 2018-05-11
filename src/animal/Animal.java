@@ -12,14 +12,14 @@ import employee.Zookeeper;
  * @author Luana Andrade
  *
  */
-public abstract class Animal{
+public abstract class Animal {
 
     /**
      * Generates the animal's ID automatically
      */
     private final int idNumber;
     public static int lasteIdNumber = 0;
-    
+
     private String name;
     private String dob;
     private char gender;
