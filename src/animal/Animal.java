@@ -293,27 +293,6 @@ public abstract class Animal{
         return "";
     }
 
-    
-//    /**
-//     * Method returns and implements a interface form IAvian
-//     *
-//     * @return Boolean isAbletoFly
-//     */
-//    @Override
-//    public boolean isAbleToFly() {
-//        return getSubtype() == Subtype.AVIAN || this instanceof Avian;
-//    }
-//
-//    /**
-//     * Method returns and implements a interface from IAquatic
-//     *
-//     * @return Boolean isAbletoSwin
-//     */
-//    @Override
-//    public boolean isAbleToSwin() {
-//        return getSubtype() == Subtype.AQUATIC || this instanceof Aquatic;
-//    }
-
     /**
      * Method returns an Array List of just one kind of animal's type
      *
