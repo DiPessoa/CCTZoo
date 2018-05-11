@@ -1,13 +1,5 @@
 package animal;
 
-/**
- * Abstract Class of an Animal 
- *
- * @author Diogo Pessoa
- * @author Luana Andrade
- *
- */
-
 import animal.classification.Subtype;
 import data.SetupData;
 import interfaces.IAquatic;
@@ -15,14 +7,21 @@ import interfaces.IAvian;
 import java.util.ArrayList;
 import employee.Zookeeper;
 
-
+/**
+ * Abstract Class of an Animal
+ *
+ * @author Diogo Pessoa
+ * @author Luana Andrade
+ *
+ */
 public abstract class Animal implements IAvian, IAquatic {
 
     /**
-    *Generates the animal's ID automatically
-    */
+     * Generates the animal's ID automatically
+     */
     private final int idNumber;
     public static int lasteIdNumber = 0;
+    
     private String name;
     private String dob;
     private char gender;
@@ -34,8 +33,7 @@ public abstract class Animal implements IAvian, IAquatic {
     private Zookeeper zookeeper;
 
     /**
-     * Constructor Method
-     * no parameters
+     * Constructor Method no parameters
      */
     public Animal() {
         idNumber = ++lasteIdNumber;
@@ -48,23 +46,23 @@ public abstract class Animal implements IAvian, IAquatic {
      * @param gender - Character - Animal's gender
      * @param dob - String - Animal's date of birth
      * @param dateArrival - String - Animal's date of arrival in the zoo
-     * @param subType - Subtype - Animal's subtype
-     * @param  offSpring - Boolean - Animal's offspring
+     * @param subtype - Subtype - Animal's subtype
+     * @param offSpring - Boolean - Animal's offspring
      * @param zookeeper - Zookeeper - Animal's zookeeper
      *
      */
-    public Animal(String name, char gender, String dob, String dateArrival, Subtype subType, boolean offSpring, Zookeeper zookeeper) {
+    public Animal(String name, char gender, String dob, String dateArrival, Subtype subtype, boolean offSpring, Zookeeper zookeeper) {
         idNumber = ++lasteIdNumber;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
         this.dateArrival = dateArrival;
-        this.subtype = subType;
+        this.subtype = subtype;
         this.offSpring = offSpring;
         this.zookeeper = zookeeper;
     }
 
-     /**
+    /**
      * Constructor Method
      *
      * @param name - String - Animal's name
@@ -72,7 +70,7 @@ public abstract class Animal implements IAvian, IAquatic {
      * @param dob - String - Animal's date of birth
      * @param dateArrival - String - Animal's date of arrival in the zoo
      * @param subType - Subtype - Animal's subtype
-     * @param  offSpring - Boolean - Animal's offspring
+     * @param offSpring - Boolean - Animal's offspring
      *
      */
     public Animal(String name, char gender, String dob, String dateArrival, boolean offSpring, Subtype subType) {
@@ -106,7 +104,7 @@ public abstract class Animal implements IAvian, IAquatic {
         this.zookeeper = zookeeper;
     }
 
-     /**
+    /**
      * Constructor Method
      *
      * @param name - String - Animal's name
@@ -169,7 +167,7 @@ public abstract class Animal implements IAvian, IAquatic {
     public void setSubtype(Subtype subType) {
         this.subtype = subType;
     }
-    
+
     /**
      * Method sets offspring
      *
@@ -187,7 +185,7 @@ public abstract class Animal implements IAvian, IAquatic {
     public void setVaccine(boolean vaccine) {
         this.vaccine = vaccine;
     }
-    
+
     /**
      * Method add a Medication object
      *
@@ -215,7 +213,7 @@ public abstract class Animal implements IAvian, IAquatic {
         return name;
     }
 
-     /**
+    /**
      * Method returns the animal's dob
      *
      * @return String dob
@@ -260,7 +258,7 @@ public abstract class Animal implements IAvian, IAquatic {
         return zookeeper;
     }
 
-      /**
+    /**
      * Method returns whether the animal has offspring
      *
      * @return Boolean offSpring
@@ -278,29 +276,53 @@ public abstract class Animal implements IAvian, IAquatic {
         return subtype;
     }
 
- 
-    @Override
-    public boolean isAbleToFly() {
-        return getSubtype() == Subtype.AVIAN || this instanceof Avian;
-    }
-
-    @Override
-    public boolean isAbleToSwin() {
-        return getSubtype() == Subtype.AQUATIC || this instanceof Aquatic;
-    }
-
+    /**
+     * Method returns the animal's type
+     *
+     * @return String type
+     */
     public String getType() {
         String type = getClass().getName().substring(getClass().getName().indexOf(".") + 1, getClass().getName().length());
         return type.toUpperCase();
     }
 
+    /**
+     * Method returns a empty string It will be override
+     *
+     * @return String null
+     */
     public String getString() {
         return "";
     }
 
-    public static ArrayList<Animal> list(String type) {
+    
+    /**
+     * Method returns and implements a interface form IAvian
+     *
+     * @return Boolean isAbletoFly
+     */
+    @Override
+    public boolean isAbleToFly() {
+        return getSubtype() == Subtype.AVIAN || this instanceof Avian;
+    }
 
-        System.out.println(SetupData.getAnimalList().size());
+    /**
+     * Method returns and implements a interface from IAquatic
+     *
+     * @return Boolean isAbletoSwin
+     */
+    @Override
+    public boolean isAbleToSwin() {
+        return getSubtype() == Subtype.AQUATIC || this instanceof Aquatic;
+    }
+
+    /**
+     * Method returns an Array List of just one kind of animal's type
+     *
+     * @param type String
+     * @return ArrayList list
+     */
+    public static ArrayList<Animal> list(String type) {
 
         ArrayList<Animal> list = new ArrayList<>();
 
@@ -317,6 +339,11 @@ public abstract class Animal implements IAvian, IAquatic {
         return list;
     }
 
+    /**
+     * Method returns a String of an object
+     *
+     * @return String output
+     */
     @Override
     public String toString() {
         String output;
