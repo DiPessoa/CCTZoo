@@ -1,8 +1,8 @@
 package animal.classification;
 
 /**
- *Enum Class to define the types and subtypes of the animals
- * 
+ * Enum Class to define the types and subtypes of the animals
+ *
  * @author Luana Andrade
  *
  */

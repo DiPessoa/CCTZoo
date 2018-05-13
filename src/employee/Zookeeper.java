@@ -15,7 +15,14 @@ import java.util.Random;
  */
 public class Zookeeper extends Employee {
 
+    /**
+     * VAriable sets the maximum amount animal that zookeeprs can take care
+     */
     private final int maxAnimals = 10;
+    
+    /**
+     * VAriable sets the maximum animal's type that zookeeprs can handle
+     */
     public static int maxTypes = 3;
 
     private Subtype[] animalsType = new Subtype[maxTypes];
@@ -39,7 +46,6 @@ public class Zookeeper extends Employee {
      * @param pps - String - zookeeper's pps
      *
      */
-
     public Zookeeper(String name, String dob, String address, String pps) {
         super(name, dob, address, pps);
     }
@@ -47,18 +53,15 @@ public class Zookeeper extends Employee {
     /**
      * Method add an animal to the animal's list if it is compatible and do not
      * exceed max count
+     * 
+     * @param animal Animal
      */
-
     public void addAnimal(Animal animal) {
         if (isAnimalCompatible(animal)) {
             if (getAnimalsCount() < maxAnimals) {
                 animalsList.add(animal);
             }
         }
-    }
-
-    public static boolean useList(String[] arr, String targetValue) {
-        return Arrays.asList(arr).contains(targetValue);
     }
 
     /**
@@ -87,9 +90,8 @@ public class Zookeeper extends Employee {
     /**
      * Method sets a Type to an Animal
      *
-     *
+     *@param type Subtype
      */
-
     public void setAnimalType(Subtype type) {
 
         if (hasAnimalType(type)) {
@@ -107,9 +109,9 @@ public class Zookeeper extends Employee {
     /**
      * Method boolean to check if toString and getType are compatible
      *
+     * @param  animal Animal
      * @return Boolean
      */
-
     public boolean isAnimalCompatible(Animal animal) {
         try {
             for (Subtype at : animalsType) {
@@ -121,7 +123,6 @@ public class Zookeeper extends Employee {
         } catch (Exception e) {
 
         }
-
         return false;
     }
 
@@ -130,7 +131,6 @@ public class Zookeeper extends Employee {
      *
      * @return Boolean animalList
      */
-
     public boolean isAvailable() {
         return animalsList.size() < 10;
     }
@@ -140,7 +140,6 @@ public class Zookeeper extends Employee {
      *
      * @return Boolean
      */
-
     private boolean hasAnimalType(Subtype type) {
         for (int i = 0; i < animalsType.length; i++) {
             if (animalsType[i] == type) {
@@ -148,7 +147,6 @@ public class Zookeeper extends Employee {
             }
         }
         return false;
-
     }
 
     /**
@@ -156,7 +154,6 @@ public class Zookeeper extends Employee {
      *
      * @return Subtype animalsType
      */
-
     public Subtype[] getAnimalsType() {
         return animalsType;
     }
@@ -166,7 +163,6 @@ public class Zookeeper extends Employee {
      *
      * @return String output
      */
-
     @Override
     public String toString() {
         String output;

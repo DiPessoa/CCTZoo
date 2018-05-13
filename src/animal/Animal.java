@@ -15,9 +15,13 @@ import employee.Zookeeper;
 public abstract class Animal {
 
     /**
-     * Generates the animal's ID automatically
+     * Variable holds the ID number
      */
     private final int idNumber;
+    
+    /**
+     * Variable holds the last ID number used
+     */
     public static int lasteIdNumber = 0;
 
     private String name;

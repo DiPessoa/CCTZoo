@@ -6,12 +6,20 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
+ * Class that generates random dates
  *
  * @author Diogo Pessoa
  *
  */
 public class RandomDate {
 
+    /**
+     * Method generates dates between given years as parameters
+     *
+     * @param minYear Integer
+     * @param maxYear Integer
+     * @return String date
+     */
     public static String getRandomDate(int minYear, int maxYear) {
 
         GregorianCalendar cal = new GregorianCalendar();
@@ -27,15 +35,27 @@ public class RandomDate {
         String randomDate = df.format(dt);
 
         return randomDate;
-
     }
 
-    //seleciona um numero randomico entre a diferença entre o end e o start
-    //casting de double para int
+    /**
+     * Method selects a random number between given numbers as parameters,
+     * casting double to integer
+     *
+     * @param start Integer
+     * @param end Integer
+     * @return Integer
+     */
     public static int randInBetween(int start, int end) {
         return start + (int) Math.round(Math.random() * (end - start));
     }
 
+    /**
+     * Method populates a Array number between given years as parameters
+     *
+     * @param yearMin Integer
+     * @param yearMax Integer
+     * @return Array
+     */
     public static String[] populateArray(int yearMin, int yearMax) {
 
         String[] dates = new String[100];

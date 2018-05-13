@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * Class that generates random animals and zookeepers
  *
  * @author Diogo Pessoa
  */
@@ -21,6 +22,13 @@ public class SetupData {
 
     private static Random randomNum = new Random();
 
+    /**
+     * Method receives the amount of animal and zookeepers that you would like
+     * to generate
+     *
+     * @param aCount Integer
+     * @param zCount Integer
+     */
     public SetupData(int aCount, int zCount) {
         createAnimalList(aCount);
         createZookeeperList(zCount);
@@ -31,6 +39,11 @@ public class SetupData {
         setAnimalZookeeper();
     }
 
+    /**
+     * Method adds animals to a Array List
+     *
+     * @param count Integer
+     */
     private void createAnimalList(int count) {
         for (int i = 0; i < count; i++) {
             int random = (int) (Math.random() * 5) + 1;
@@ -38,20 +51,41 @@ public class SetupData {
         }
     }
 
+    /**
+     * Method adds zookeepers to a Array List,
+     *
+     * @param count Integer
+     */
     private void createZookeeperList(int count) {
         for (int i = 0; i < count; i++) {
             zookeepersList.add(createZookeeper());
         }
     }
 
+    /**
+     * Method adds an animal to a Array List
+     *
+     * @param animal Animal
+     */
     public static void addAnimal(Animal animal) {
         animalList.add(animal);
     }
 
+    /**
+     * Method adds an zookeepers to a Array List
+     *
+     * @param zookeeper Zookeeper
+     */
     public static void addZookeeper(Zookeeper zookeeper) {
         zookeepersList.add(zookeeper);
     }
 
+    /**
+     * Method creates an animal
+     *
+     * @param number Integer
+     * @return Animal
+     */
     public static Animal createAnimal(int number) {
         Animal an;
         switch (number) {
@@ -76,10 +110,21 @@ public class SetupData {
         return an;
     }
 
+    /**
+     * Method creates an zookeeper
+     *
+     * @return Animal
+     */
     private Zookeeper createZookeeper() {
         return new Zookeeper();
     }
 
+    /**
+     * Method populate a Array List(animalList) with all qualification, that was
+     * store in StoreData
+     *
+     * @param null
+     */
     private void populateAnimal() {
         for (Animal animal : animalList) {
             animal.setName(StoreData.animalNames[randomNum.nextInt(StoreData.animalNames.length)]);
@@ -91,6 +136,12 @@ public class SetupData {
         }
     }
 
+    /**
+     * Method populate a Array List(zookeeperlList) with all qualification, that
+     * was store in StoreData
+     *
+     * @param null
+     */
     private void populateZookeeper() {
         for (Zookeeper zookeeper : zookeepersList) {
             zookeeper.setName(StoreData.zookeeperName[randomNum.nextInt(StoreData.zookeeperName.length)]);
@@ -103,16 +154,26 @@ public class SetupData {
         }
     }
 
+    /**
+     * Method sets a zookeeper to a animal
+     *
+     * @param null
+     */
     private void setAnimalZookeeper() {
-        
 
         for (Animal animal : animalList) {
             animal.setZookeeper(getValidZookeeper(animal));
-
         }
-
     }
 
+    /**
+     * Method gets a valid zookeeper, testing if the zookeeper is compatible
+     * with the animal type or subtype and if the zookeeper is available to take
+     * care of them, invoking methods from class Zookeeper
+     *
+     * @param animal Animal
+     * @return Zookeeper
+     */
     public Zookeeper getValidZookeeper(Animal animal) {
 
         int randomKeeperIndex = randomNum.nextInt(zookeepersList.size());
@@ -127,10 +188,20 @@ public class SetupData {
         }
     }
 
+    /**
+     * Method gets an Array List of Animals
+     *
+     * @return ArrayList of Animals
+     */
     public static ArrayList<Animal> getAnimalList() {
         return animalList;
     }
 
+    /**
+     * Method gets an Array List of Zookeepers
+     *
+     * @return ArrayList of Zookeepers
+     */
     public static ArrayList<Zookeeper> getZookeepersList() {
         return zookeepersList;
     }

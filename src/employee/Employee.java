@@ -18,7 +18,6 @@ abstract class Employee {
     /**
      * Constructor Method no parameters
      */
-
     public Employee() {
         employeeID = ++lastemployeeID;
     }
@@ -55,7 +54,6 @@ abstract class Employee {
      *
      * @return String dob
      */
-
     public String getDob() {
         return dob;
     }
@@ -65,7 +63,6 @@ abstract class Employee {
      *
      * @return String address
      */
-
     public String getAddress() {
         return address;
     }
@@ -75,7 +72,6 @@ abstract class Employee {
      *
      * @return String pps
      */
-
     public String getPps() {
         return pps;
     }
@@ -94,7 +90,6 @@ abstract class Employee {
      *
      * @param name String
      */
-
     public void setName(String name) {
         this.name = name;
     }
@@ -104,7 +99,6 @@ abstract class Employee {
      *
      * @param dob String
      */
-
     public void setDob(String dob) {
         this.dob = dob;
     }
@@ -114,7 +108,6 @@ abstract class Employee {
      *
      * @param address String
      */
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -122,9 +115,8 @@ abstract class Employee {
     /**
      * Method sets pps
      *
-     * @param dob String
+     * @param pps String
      */
-
     public void setPps(String pps) {
         this.pps = pps;
     }

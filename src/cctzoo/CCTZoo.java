@@ -10,10 +10,8 @@
  */
 package cctzoo;
 
-
 import data.SetupData;
 import menu.Menu;
-
 
 /**
  * Main Class
@@ -24,6 +22,7 @@ public class CCTZoo {
 
     /**
      * Main method call methods and hold a instance
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -32,13 +31,12 @@ public class CCTZoo {
          * This instance generates randomly 100 animals and 40 keepers, as
          * arguments
          */
-       SetupData sd = new SetupData(100, 40);
+        SetupData sd = new SetupData(100, 40);
 
         /**
          * This method invokes the console menu
          */
-       Menu mn = new Menu();
+        Menu mn = new Menu();
 
-        
     }
 }
