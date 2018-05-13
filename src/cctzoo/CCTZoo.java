@@ -22,6 +22,7 @@ public class CCTZoo {
 
     /**
      * Main method call methods and hold a instance
+     * @param args
      */
     public static void main(String[] args) {
 
