@@ -104,7 +104,7 @@ public class SetupData {
     }
 
     private void setAnimalZookeeper() {
-        Mammal mm = new Mammal();
+        
 
         for (Animal animal : animalList) {
             animal.setZookeeper(getValidZookeeper(animal));

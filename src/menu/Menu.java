@@ -8,6 +8,14 @@ import data.StoreData;
 import employee.Zookeeper;
 import java.util.*;
 
+/**
+ * Class of an Menu used by the user
+ *
+ * @author Diogo Pessoa
+ * @author Luana Andrade
+ *
+ */
+
 public class Menu {
 
     private Scanner in;
@@ -16,12 +24,24 @@ public class Menu {
     private int operation = 0;
     private int animalType = 0;
 
+    /**
+     * Method prints main Menu
+     *
+     *
+     */
+
     public void display_menu() {
         System.out.println("-----------------Welcome to ZooCCT-----------------");
         System.out.println("Choose what you would like to manage:");
         System.out.println(" Animals [1] \n ZooKeepers [2]");
         System.out.print("Selection: ");
     }
+
+    /**
+     * Method displays operations inside main Menu
+     *
+     *
+     */
 
     public void display_operations() {
         System.out.println("---------------------------------------------------");
@@ -30,12 +50,24 @@ public class Menu {
         System.out.print("Selection: ");
     }
 
+    /**
+     * Method displays animals type to be selected
+     *
+     *
+     */
+
     public void display_animal_type() {
         System.out.println("---------------------------------------------------");
         System.out.println("Choose the Type");
         System.out.println(" Aquatic [1]\n Avian [2]\n Insect [3]\n Mammal [4]\n Reptile [5]\n All Animals [6]");
         System.out.print("Selection: ");
     }
+
+    /**
+     * Method operation to switch cases according to the main selection
+     *
+     *
+     */
 
     public void operation() {
         switch (mainSelection) {
@@ -53,6 +85,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Method question to be asked after each selection
+     *
+     *
+     */
     public void question() {
         System.out.println("---------------------------------------------------");
         System.out.println("Would you like to proceed or quit?");
@@ -73,6 +110,12 @@ public class Menu {
                 break;
         }
     }
+
+    /**
+     * Method run to switch cases after option chosen in the main selection
+     *
+     *
+     */
 
     public void run() {
 
@@ -95,6 +138,12 @@ public class Menu {
         question();
     }
 
+    /**
+     * Method menu shows what order will be displayed
+     *
+     *
+     */
+
     public Menu() {
         in = new Scanner(System.in);
 
@@ -108,6 +157,12 @@ public class Menu {
 
         operation();
     }
+
+    /**
+     * Method list to search through animals and zookeepers
+     *
+     *
+     */
 
     public void list() {
         switch (mainSelection) {
@@ -153,6 +208,12 @@ public class Menu {
                 break;
         }
     }
+
+    /**
+     * Method adds values to the variables
+     *
+     *
+     */
 
     public void add() {
         switch (mainSelection) {
@@ -236,6 +297,12 @@ public class Menu {
         }
 
     }
+
+    /**
+     * Method updates data into animal's and zookeeper's list
+     *
+     * @return String name
+     */
 
     public void update() {
         switch (mainSelection) {
